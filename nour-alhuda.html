@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نور الهدى | قصص الأنبياء والصحابة والقصص القرآنية بالمصادر الصحيحة</title>
+<meta name="description" content="موقع إسلامي احترافي يجمع قصص الأنبياء والصحابة والقصص القرآنية بمصادر صحيحة موثوقة مع استماع صوتي ومشاركة وطباعة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Amiri+Quran&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800;900&family=Reem+Kufi:wght@400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --emerald:#0d3b2e; --emerald-2:#145843; --dark:#081a15;
+  --gold:#c9a45c; --gold-2:#e6c87a; --cream:#faf6ee; --paper:#fffdf7;
+  --ink:#1d2b26; --muted:#6b7d76; --line:#e8ddc3;
+  --radius:18px; --shadow:0 20px 50px rgba(13,59,46,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo',sans-serif; background:var(--cream); color:var(--ink);
+  line-height:2; overflow-x:hidden;
+}
+body.dark{background:#0b1512;color:#e9e2d0;--paper:#12211b;--line:#2a3d34;--ink:#e9e2d0;--muted:#a9b8ad}
+.container{max-width:1180px;margin:auto;padding:0 20px}
+h1,h2,h3{line-height:1.8}
+.ruqaa,.ruqaa-title{font-family:'Aref Ruqaa',serif}
+.aya,.hadith,.basmala,.loader-ornament{font-family:'Amiri Quran','Amiri',serif}
+
+/* Loader */
+#loader{position:fixed;inset:0;background:var(--emerald);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#loader.hide{opacity:0;visibility:hidden}
+.loader-inner{text-align:center;color:#fff}
+.loader-ornament{font-size:64px;color:var(--gold-2)}
+.loader-text{font-family:'Amiri',serif;font-size:26px;margin:8px 0 18px}
+.loader-bar{width:220px;height:4px;background:rgba(255,255,255,.2);border-radius:99px;margin:auto;overflow:hidden}
+.loader-bar span{display:block;width:40%;height:100%;background:var(--gold-2);border-radius:99px;animation:load 1.1s infinite ease-in-out}
+@keyframes load{0%{transform:translateX(220%)}100%{transform:translateX(-260%)}}
+
+/* Navbar */
+#navbar{position:sticky;top:0;z-index:100;background:rgba(250,246,238,.92);backdrop-filter:blur(12px);border-bottom:2px solid var(--line)}
+body.dark #navbar{background:rgba(11,21,18,.92)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.logo-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--emerald),var(--emerald-2));color:var(--gold-2);display:grid;place-items:center;font-size:24px;box-shadow:var(--shadow)}
+.logo-text strong{display:block;font-family:'Aref Ruqaa',serif;font-size:22px;color:var(--emerald)}
+body.dark .logo-text strong{color:var(--gold-2)}
+.logo-text small{color:var(--muted);font-size:12px}
+.nav-links{display:flex;gap:26px}
+.nav-links a{text-decoration:none;color:inherit;font-weight:700;font-size:15px;position:relative}
+.nav-links a.active,.nav-links a:hover{color:var(--emerald-2)}
+body.dark .nav-links a.active{color:var(--gold-2)}
+.nav-actions{display:flex;gap:10px}
+.nav-actions button{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:17px;color:inherit}
+#menuBtn{display:none}
+
+/* Hero */
+.hero{position:relative;background:radial-gradient(1000px 500px at 80% -10%,#1a6b52 0%,transparent 60%),linear-gradient(160deg,var(--dark) 0%,var(--emerald) 60%,#0a2e24 100%);color:#fff;overflow:hidden}
+.pattern-overlay{position:absolute;inset:0;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0l10 30 30 10-30 10-10 30-10-30-30-10 30-10z' fill='none' stroke='%23e6c87a' stroke-width='1.5'/%3E%3C/svg%3E")}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.3fr .8fr;gap:40px;padding:70px 20px 130px;align-items:center}
+.basmala{font-size:28px;color:var(--gold-2);margin-bottom:10px}
+.hero-text h1{font-family:'Aref Ruqaa',serif;font-size:clamp(34px,5vw,58px);font-weight:700}
+.hero-text h1 .ruqaa{color:var(--gold-2)}
+.hero-desc{color:#d8e6dd;margin:16px 0;font-size:17px;max-width:640px}
+.hero-desc strong{color:var(--gold-2)}
+.hero-quran{background:rgba(255,255,255,.08);border:1px solid rgba(230,200,122,.4);border-radius:14px;padding:14px 18px;display:flex;gap:12px;align-items:center;margin-bottom:22px}
+.hero-quran p{font-family:'Amiri',serif;font-size:21px}
+.hero-quran span{color:var(--gold-2);font-size:15px}
+.hero-quran i{color:var(--gold-2)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:99px;text-decoration:none;font-weight:800;font-size:15px;transition:.25s;border:2px solid transparent}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#3a2c08}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(201,164,92,.4)}
+.btn-outline{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,.12)}
+.hero-stats{display:flex;gap:28px;margin-top:26px}
+.hero-stats strong{display:block;font-size:30px;color:var(--gold-2)}
+.hero-stats span{font-size:13px;color:#cfe0d6}
+.hero-card .ornament-frame{background:var(--paper);color:var(--ink);border-radius:22px;padding:30px 26px;text-align:center;border:3px double var(--gold);box-shadow:var(--shadow);position:relative}
+.frame-head{font-family:'Reem Kufi',sans-serif;color:var(--emerald-2);font-weight:700;letter-spacing:.5px}
+body.dark .frame-head{color:var(--gold-2)}
+.hadith{font-size:26px;margin:8px 0 2px}
+.aya{font-size:24px;margin:8px 0 2px;color:var(--emerald)}
+body.dark .aya{color:var(--gold-2)}
+.ornament-frame small{color:var(--muted)}
+.divider{color:var(--gold);margin:14px 0}
+.hero-wave{position:absolute;bottom:-1px;left:0;right:0}
+.hero-wave svg{width:100%;height:70px;fill:var(--cream)}
+body.dark .hero-wave svg{fill:#0b1512}
+
+/* Sections */
+.section{padding:70px 0}
+.section-head{text-align:center;max-width:720px;margin:0 auto 36px}
+.kicker{display:inline-block;background:#eef3ec;border:1px solid var(--line);color:var(--emerald-2);padding:6px 18px;border-radius:99px;font-weight:800;font-size:13px;margin-bottom:12px}
+body.dark .kicker{background:#14231d;color:var(--gold-2)}
+.ruqaa-title{font-size:clamp(28px,4vw,42px);color:var(--emerald)}
+body.dark .ruqaa-title{color:var(--gold-2)}
+.section-head p{color:var(--muted)}
+
+/* Toolbar */
+.toolbar{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--paper);border:2px solid var(--line);border-radius:99px;padding:12px 20px}
+.search-box input{border:none;outline:none;background:transparent;flex:1;font-family:inherit;font-size:16px;color:inherit}
+.search-box i{color:var(--gold)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.filter-btn{border:2px solid var(--line);background:var(--paper);color:inherit;padding:9px 22px;border-radius:99px;font-family:inherit;font-weight:800;cursor:pointer;transition:.2s;font-size:14px}
+.filter-btn.active,.filter-btn:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+
+/* Cards */
+.stories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.story-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.06);transition:.3s;cursor:pointer;display:flex;flex-direction:column}
+.story-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
+.card-top{height:150px;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;overflow:hidden}
+.card-top::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5l7 18 18 7-18 7-7 18-7-18-18-7 18-7z' fill='none' stroke='rgba(255,255,255,.35)'/%3E%3C/svg%3E")}
+.card-icon{font-size:52px;position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.3))}
+.card-cat{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);padding:4px 14px;border-radius:99px;font-size:12px;font-weight:800;z-index:2}
+.card-body{padding:20px 20px 22px;flex:1;display:flex;flex-direction:column}
+.card-body h3{font-family:'Aref Ruqaa',serif;font-size:22px;color:var(--emerald);margin-bottom:6px}
+body.dark .card-body h3{color:var(--gold-2)}
+.card-refs{font-size:13px;color:var(--muted);margin-bottom:10px}
+.card-refs i{color:var(--gold)}
+.card-desc{font-size:14.5px;color:var(--muted);flex:1}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.card-foot span{font-size:13px;font-weight:800;color:var(--emerald-2)}
+body.dark .card-foot span{color:var(--gold-2)}
+.read-btn{background:linear-gradient(135deg,var(--emerald),var(--emerald-2));color:#fff;border:none;padding:8px 20px;border-radius:99px;font-family:inherit;font-weight:800;cursor:pointer;font-size:13px}
+.no-results{text-align:center;color:var(--muted);padding:40px;font-size:18px}
+
+/* Methodology */
+.methodology{background:linear-gradient(160deg,var(--dark),var(--emerald));color:#fff;position:relative;overflow:hidden}
+.methodology::before{content:'۞';position:absolute;font-size:420px;opacity:.05;left:-40px;top:-60px;font-family:'Amiri',serif}
+.section-head.light .ruqaa-title{color:var(--gold-2)}
+.section-head.light p{color:#cfe0d6}
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;position:relative}
+.method-card{background:rgba(255,255,255,.07);border:1px solid rgba(230,200,122,.3);border-radius:18px;padding:26px 22px;position:relative}
+.method-card:hover{background:rgba(255,255,255,.11)}
+.m-num{position:absolute;top:14px;left:18px;font-size:44px;font-weight:900;color:rgba(230,200,122,.25);font-family:'Cairo'}
+.method-card h3{color:var(--gold-2);font-size:18px;margin-bottom:8px}
+.method-card h3 i{margin-left:6px}
+.method-card p{font-size:14.5px;color:#e2ece6}
+
+/* Sources */
+.sources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:22px}
+.source-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 14px;text-align:center;transition:.25s}
+.source-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.source-card i{font-size:30px;color:var(--emerald-2)}
+body.dark .source-card i{color:var(--gold-2)}
+.source-card h3{font-size:16px;margin:8px 0 2px}
+.source-card p{font-size:12.5px;color:var(--muted)}
+.alert-box{display:flex;gap:12px;background:#fff8e6;border:2px solid #e6c87a;border-radius:16px;padding:18px 20px;font-size:14.5px}
+body.dark .alert-box{background:#201c0e;color:#f0e3bd}
+.alert-box i{color:#b78a1e;font-size:22px;margin-top:4px}
+
+/* دليل الأهل 👨‍👩‍👧 */
+.guide-section{background:var(--paper);border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.guide-h{font-family:'Aref Ruqaa',serif;font-size:24px;color:var(--emerald);margin:30px 0 16px;text-align:center}
+body.dark .guide-h{color:var(--gold-2)}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.step-card{background:var(--cream);border:2px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center;position:relative;transition:.25s}
+body.dark .step-card{background:#14231d}
+.step-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:var(--shadow)}
+.step-num{position:absolute;top:10px;left:12px;width:30px;height:30px;border-radius:50%;background:var(--emerald);color:#fff;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+.step-emoji{font-size:44px;margin-bottom:6px}
+.step-card h4{font-size:17px;margin-bottom:6px;color:var(--emerald-2)}
+body.dark .step-card h4{color:var(--gold-2)}
+.step-card p{font-size:13.5px;color:var(--muted)}
+.plan-table{border:2px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:10px}
+.plan-row{display:grid;grid-template-columns:110px 1fr 90px;gap:8px;padding:12px 16px;font-size:14px;align-items:center;background:var(--cream)}
+body.dark .plan-row{background:#14231d}
+.plan-row:nth-child(even){background:#f3ecda}
+body.dark .plan-row:nth-child(even){background:#182920}
+.plan-row.plan-head{background:var(--emerald);color:#fff;font-weight:900}
+.plan-row span:first-child{font-weight:800}
+.plan-row span:last-child{color:var(--muted);font-size:12.5px;text-align:left}
+.plan-note{text-align:center;color:var(--muted);font-size:14px;margin-bottom:12px}
+.guide-actions{display:flex;justify-content:center;margin-bottom:6px}
+.guide-actions .action-btn{flex:0 1 320px}
+.ages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.age-card{background:linear-gradient(160deg,#fffdf5,#faf0d7);border:2px solid #e6c87a;border-radius:16px;padding:22px 18px;text-align:center}
+body.dark .age-card{background:linear-gradient(160deg,#1a241e,#24200f)}
+.age-emoji{font-size:40px}
+.age-card h4{color:#8a5f0d;margin:6px 0}
+body.dark .age-card h4{color:var(--gold-2)}
+.age-card p{font-size:13.5px;color:var(--muted)}
+.faq-list{display:flex;flex-direction:column;gap:10px;max-width:800px;margin:auto}
+.faq-item{background:var(--cream);border:2px solid var(--line);border-radius:12px;overflow:hidden}
+body.dark .faq-item{background:#14231d}
+.faq-item summary{cursor:pointer;padding:14px 18px;font-weight:800;font-size:15px;list-style:none;display:flex;align-items:center;gap:8px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::before{content:'+';width:26px;height:26px;border-radius:50%;background:var(--gold);color:#3a2c08;font-weight:900;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-item[open] summary::before{content:'−'}
+.faq-item p{padding:0 18px 16px;font-size:14px;color:var(--muted)}
+@media(max-width:600px){.plan-row{grid-template-columns:90px 1fr;font-size:13px}.plan-row span:last-child{display:none}}
+
+/* Dua */
+.dua-section{background:var(--paper);border-top:2px solid var(--line);border-bottom:2px solid var(--line);text-align:center;padding:44px 20px}
+.dua{font-family:'Amiri',serif;font-size:clamp(22px,3.5vw,32px);color:var(--emerald)}
+body.dark .dua{color:var(--gold-2)}
+.dua span{font-family:'Cairo';font-size:15px;color:var(--muted)}
+.dua-sub{color:var(--muted);font-size:15px}
+
+/* Footer */
+footer{background:var(--dark);color:#d5e2d9;padding:50px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-bottom:30px}
+footer h3,footer h4{color:var(--gold-2);margin-bottom:10px;font-family:'Aref Ruqaa',serif}
+footer a{display:block;color:#bcd0c5;text-decoration:none;font-size:14px;margin-bottom:6px}
+footer a:hover{color:var(--gold-2)}
+footer p{font-size:14px;color:#a9bfb3}
+.footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,.12);padding:16px;font-size:13px;color:#8fa69a}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(6,20,16,.7);backdrop-filter:blur(6px);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:30px 16px;overflow-y:auto}
+.modal.open{display:flex}
+.modal-content{background:var(--cream);color:var(--ink);max-width:820px;width:100%;border-radius:24px;overflow:hidden;position:relative;animation:pop .35s ease;border:3px double var(--gold)}
+body.dark .modal-content{background:#101e18}
+@keyframes pop{from{transform:translateY(30px) scale(.98);opacity:0}}
+.modal-close{position:absolute;top:14px;left:14px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,.4);color:#fff;font-size:18px;cursor:pointer;z-index:3}
+.modal-hero{background:linear-gradient(135deg,var(--emerald),#1a6b52);color:#fff;padding:44px 30px 26px;text-align:center;position:relative;overflow:hidden}
+.modal-hero::before{content:'❖';position:absolute;font-size:200px;opacity:.08;top:-30px;right:20px}
+.modal-cat{background:var(--gold);color:#3a2c08;font-size:12px;font-weight:900;padding:5px 18px;border-radius:99px}
+.modal-hero h2{font-family:'Aref Ruqaa',serif;font-size:34px;margin:10px 0 4px}
+.modal-hero p{color:#e8dcc0;font-size:14px}
+.modal-body{padding:22px 26px 30px}
+.modal-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab-btn{flex:1;min-width:120px;border:2px solid var(--line);background:var(--paper);color:inherit;border-radius:12px;padding:10px;font-family:inherit;font-weight:800;cursor:pointer;font-size:14px}
+.tab-btn.active{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.tab-pane{display:none;animation:pop .3s}
+.tab-pane.active{display:block}
+.tab-pane p{margin-bottom:12px;font-size:16px}
+.verse-box{background:#eef7f0;border:1px solid #bcd8c2;border-radius:14px;padding:14px 18px;margin-bottom:12px}
+body.dark .verse-box{background:#15271f}
+.verse-box .ar{font-family:'Amiri',serif;font-size:22px;color:var(--emerald)}
+body.dark .verse-box .ar{color:var(--gold-2)}
+.verse-box .ref{font-size:13px;color:var(--muted);font-weight:800}
+.lesson-item{display:flex;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:10px;font-size:15px}
+.lesson-item i{color:var(--gold);margin-top:8px}
+.source-list{list-style:none}
+.source-list li{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin-bottom:8px;font-size:14px}
+.source-list i{color:var(--emerald-2);margin-left:6px}
+
+#backTop{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#3a2c08;font-size:18px;cursor:pointer;display:none;box-shadow:var(--shadow);z-index:200}
+#backTop.show{display:block}
+
+/* أزرار الصوت والمشاركة والطباعة */
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.action-btn{flex:1;min-width:130px;border:none;border-radius:12px;padding:11px 14px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+.action-btn.audio{background:linear-gradient(135deg,#6d28a8,#a05cd4);color:#fff}
+.action-btn.audio.playing{background:linear-gradient(135deg,#a81515,#e05252);animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+.action-btn.share{background:linear-gradient(135deg,var(--emerald),var(--emerald-2));color:#fff}
+.action-btn.print{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#3a2c08}
+.action-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.share-wrap{flex:1;min-width:130px;position:relative;display:flex}
+.share-wrap .action-btn{width:100%}
+.share-box{position:absolute;top:110%;right:0;left:0;background:var(--paper);border:2px solid var(--gold);border-radius:14px;overflow:hidden;display:none;z-index:10;box-shadow:var(--shadow)}
+.share-box.show{display:block}
+.share-box button{display:flex;align-items:center;gap:8px;width:100%;border:none;background:transparent;padding:11px 14px;font-family:inherit;font-size:14px;font-weight:700;color:inherit;cursor:pointer;text-align:right}
+.share-box button:hover{background:#f3ead0}
+body.dark .share-box button:hover{background:#1e2f27}
+.share-box button i{width:20px;color:var(--emerald-2)}
+body.dark .share-box button i{color:var(--gold-2)}
+
+/* المفضلة */
+.fav-count{background:var(--gold);color:#3a2c08;font-size:11px;font-weight:900;min-width:20px;height:20px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+.filter-btn.fav-filter.active{background:#b01e4a;border-color:#b01e4a}
+.card-fav{position:absolute;top:10px;left:10px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);font-size:18px;cursor:pointer;z-index:2;transition:.2s;line-height:1}
+.card-fav:hover{transform:scale(1.15)}
+.card-fav.active{background:#fff;box-shadow:0 4px 12px rgba(176,30,74,.4)}
+.card-stars{position:absolute;bottom:10px;right:12px;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);padding:3px 12px;border-radius:99px;font-size:12px;z-index:2;letter-spacing:1px}
+.action-btn.fav{background:#fff;border:2px solid #e8a0b6;color:#b01e4a}
+.action-btn.fav.active{background:#b01e4a;color:#fff;border-color:#b01e4a}
+
+/* اختبار الأطفال */
+.quiz-tab{border-color:#c9a0e8 !important}
+.quiz-tab.active{background:#6d28a8 !important;border-color:#6d28a8 !important}
+.quiz-head{background:linear-gradient(135deg,#6d28a8,#a05cd4);color:#fff;border-radius:14px;padding:16px 18px;margin-bottom:16px;text-align:center;font-weight:900;font-size:18px}
+.quiz-head small{display:block;font-weight:600;font-size:13px;opacity:.9}
+.quiz-best{background:rgba(255,255,255,.2);border-radius:99px;display:inline-block;padding:4px 16px;margin-top:8px;font-size:13px}
+.quiz-q{background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.quiz-qtitle{font-weight:800;font-size:16px;margin-bottom:10px}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{border:2px solid var(--line);background:transparent;color:inherit;border-radius:10px;padding:10px 14px;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;text-align:right;transition:.15s}
+.quiz-opt:hover:not(:disabled){border-color:#6d28a8;background:#f3eafd}
+body.dark .quiz-opt:hover:not(:disabled){background:#1d2b25}
+.quiz-opt.picked{border-color:#6d28a8;background:#6d28a8;color:#fff}
+.quiz-opt.correct{border-color:#1a9e54 !important;background:#1a9e54 !important;color:#fff}
+.quiz-opt.wrong{border-color:#d33 !important;background:#d33 !important;color:#fff}
+.quiz-opt:disabled{cursor:default;opacity:.95}
+.quiz-feedback{font-size:13.5px;font-weight:700;margin-top:8px;min-height:22px}
+.quiz-feedback.good{color:#1a9e54}
+.quiz-feedback.bad{color:#d33}
+.quiz-feedback.info{color:#6d28a8}
+.quiz-submit{width:100%;border:none;border-radius:14px;padding:14px;font-family:inherit;font-weight:900;font-size:16px;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#3a2c08;margin-top:6px}
+.quiz-submit:hover{transform:translateY(-2px)}
+.quiz-result{text-align:center;margin-top:16px}
+.score-circle{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),#1a9e54);color:#fff;font-size:28px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;border:4px solid var(--gold)}
+.score-msg{font-weight:800;font-size:16px;margin-bottom:12px}
+.quiz-retry{border:2px solid var(--emerald);background:transparent;color:inherit;border-radius:99px;padding:10px 26px;font-family:inherit;font-weight:800;cursor:pointer}
+.quiz-retry:hover{background:var(--emerald);color:#fff}
+
+/* بانر الشهادة */
+.cert-link{color:#b01e4a !important;font-weight:900 !important}
+.cert-banner{margin-top:26px;background:linear-gradient(135deg,#0d3b2e,#1a6b52);border:2px solid var(--gold);border-radius:18px;padding:22px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;color:#fff}
+.cert-banner-text{flex:1;min-width:220px}
+.cert-banner-text strong{display:block;font-size:19px;color:var(--gold-2)}
+.cert-banner-text span{font-size:14px;color:#d8e6dd}
+.cert-bar{flex:1;min-width:160px;height:12px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden}
+.cert-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:99px;transition:width .6s}
+.cert-banner .btn{flex-shrink:0}
+
+/* تحدي الأسبوع ⏳ */
+.weekly-banner{margin-top:16px;background:linear-gradient(135deg,#2b1d4d,#5b2b8a);border:2px solid #c9a0e8;border-radius:18px;padding:22px 24px;color:#fff}
+.weekly-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.weekly-head strong{font-size:19px;color:#ffe9a8}
+.weekly-timer{background:rgba(0,0,0,.35);border:1px solid rgba(255,233,168,.5);padding:6px 18px;border-radius:99px;font-size:14px;font-weight:800;color:#ffe9a8}
+.weekly-sub{font-size:13.5px;color:#d9cdf3;margin:8px 0 14px}
+.weekly-board{display:flex;flex-direction:column;gap:10px}
+.weekly-row{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border-radius:12px;padding:10px 14px}
+.weekly-row.done{background:rgba(255,215,0,.15);border:1px solid #e6c87a}
+.weekly-name{font-weight:800;font-size:15px;min-width:110px}
+.weekly-pbar{flex:1;height:12px;background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden}
+.weekly-pbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#e6c87a,#ffe9a8);border-radius:99px;transition:width .6s}
+.weekly-num{font-size:13px;font-weight:800;color:#ffe9a8;white-space:nowrap}
+.weekly-winner{margin-top:14px;background:linear-gradient(135deg,#b8862f,#ffe9a8);color:#3a2c08;border-radius:14px;padding:14px 18px;text-align:center;font-size:16px;font-weight:800;animation:pop .4s}
+
+/* المسابقة العائلية */
+.family-section{background:var(--paper);border:2px dashed var(--gold);border-radius:14px;padding:16px;margin-bottom:16px}
+.family-title{font-weight:900;font-size:16px;margin-bottom:10px;text-align:center}
+.kid-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.kid-chip{border:2px solid var(--line);background:transparent;color:inherit;border-radius:99px;padding:8px 16px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.15s}
+.kid-chip small{background:#eee;border-radius:99px;padding:1px 8px;font-size:11px}
+body.dark .kid-chip small{background:#1e2f27}
+.kid-chip.active{background:linear-gradient(135deg,var(--emerald),var(--emerald-2));color:#fff;border-color:var(--emerald)}
+.kid-chip.active small{background:rgba(255,255,255,.25)}
+.kid-x{background:rgba(0,0,0,.15);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;line-height:1}
+.kid-x:hover{background:#d33;color:#fff}
+.add-kid-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.kid-add-input{flex:1;min-width:150px;border:2px solid var(--line);border-radius:10px;padding:9px 14px;font-family:inherit;font-size:14px;background:transparent;color:inherit;outline:none}
+.kid-add-input:focus{border-color:var(--gold)}
+.kid-add-btn{border:none;border-radius:10px;padding:9px 18px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#3a2c08;font-family:inherit;font-weight:900;font-size:14px;cursor:pointer}
+.sound-toggle{border:2px solid var(--line);border-radius:10px;padding:9px 16px;background:transparent;color:inherit;font-family:inherit;font-weight:800;font-size:13px;cursor:pointer}
+.sound-toggle.on{border-color:#1a9e54}
+.leaderboard{background:rgba(0,0,0,.04);border-radius:12px;padding:12px 14px}
+body.dark .leaderboard{background:rgba(255,255,255,.05)}
+.lb-title{font-weight:900;font-size:14px;margin-bottom:8px;text-align:center;color:var(--emerald-2)}
+body.dark .lb-title{color:var(--gold-2)}
+.lb-row{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;border-radius:8px;font-size:14px;font-weight:700;margin-bottom:4px;background:transparent}
+.lb-row.me{background:linear-gradient(135deg,rgba(201,164,92,.25),rgba(201,164,92,.1));border:1px solid var(--gold)}
+.lb-score{font-size:12.5px;color:var(--muted)}
+.cert-modal-content{max-width:760px !important}
+.cert-modal-head{background:linear-gradient(135deg,#3d2b0d,#b8862f);color:#fff;padding:44px 30px 22px;text-align:center}
+.cert-modal-head h2{font-family:'Aref Ruqaa',serif;font-size:32px}
+.cert-modal-head p{color:#f5e8c8;font-size:14px}
+.cert-modal-body{padding:22px 26px 30px}
+.kid-label{display:block;font-weight:800;margin-bottom:8px}
+.kid-input{width:100%;border:2px solid var(--gold);border-radius:12px;padding:12px 16px;font-family:'Aref Ruqaa',serif;font-size:20px;text-align:center;outline:none;background:var(--paper);color:inherit;margin-bottom:16px}
+.kid-input:focus{border-color:#b8862f;box-shadow:0 0 0 3px rgba(201,164,92,.25)}
+.cert-stars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:8px;margin-bottom:18px}
+.cert-star-item{border:2px solid var(--line);background:var(--paper);color:inherit;border-radius:12px;padding:8px 4px;font-size:22px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.15s;font-family:inherit}
+.cert-star-item small{font-size:10px;letter-spacing:1px}
+.cert-star-item:hover{transform:scale(1.08);border-color:var(--gold)}
+.cert-star-item.missing{opacity:.75;border-style:dashed}
+
+/* ورقة الشهادة */
+#certPaperWrap{display:flex;justify-content:center;margin-bottom:14px}
+.cert-paper{width:100%;max-width:600px;background:#fffdf5;color:#1d2b26;border-radius:8px;padding:10px}
+.cert-frame{border:4px double #b8862f;border-radius:8px;padding:30px 26px;text-align:center;position:relative;background-image:url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 5l8 22 22 8-22 8-8 22-8-22-22-8 22-8z' fill='none' stroke='%23e6c87a' stroke-width='1' opacity='.5'/%3E%3C/svg%3E")}
+.cert-basmala{font-family:'Amiri Quran','Amiri',serif;font-size:22px;color:#0d3b2e}
+.cert-orn{color:#b8862f;margin:4px 0}
+.cert-title{font-family:'Aref Ruqaa',serif;font-size:34px;color:#0d3b2e;margin:4px 0}
+.cert-sub{font-size:14px;color:#5a6b63}
+.cert-name{font-family:'Aref Ruqaa',serif;font-size:38px;color:#b8862f;margin:10px 0;border-bottom:2px dashed #e6c87a;display:inline-block;padding:0 30px;min-width:200px}
+.cert-level{background:linear-gradient(135deg,#0d3b2e,#1a6b52);color:#ffe9a8;font-weight:900;border-radius:99px;display:inline-block;padding:8px 28px;margin:10px 0;font-size:17px}
+.cert-stats{display:flex;justify-content:center;gap:26px;margin:14px 0;flex-wrap:wrap}
+.cert-stats strong{display:block;font-size:24px;color:#0d3b2e}
+.cert-stats span{font-size:12px;color:#6b7d76}
+.cert-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px;font-size:13px;color:#5a6b63;gap:10px;flex-wrap:wrap}
+.cert-sign{font-weight:800;color:#0d3b2e}
+.cert-seal{position:absolute;top:14px;left:14px;font-size:44px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.2))}
+.cert-msg{background:#fff8e6;border:2px solid #e6c87a;border-radius:12px;padding:12px 16px;font-size:14.5px;margin-bottom:14px;color:#5a4a08;text-align:center}
+body.dark .cert-msg{background:#201c0e;color:#f0e3bd}
+body.dark .cert-paper,body.dark .cert-paper .cert-title,body.dark .cert-stats strong{color:#1d2b26}
+.cert-actions{display:flex;gap:10px;flex-wrap:wrap}
+.confetti{text-align:center;font-size:30px;animation:pop .4s;padding-top:14px}
+
+/* طباعة الشهادة فقط */
+@media print{
+  body.printing-cert *{visibility:hidden !important}
+  body.printing-cert #certPaper,body.printing-cert #certPaper *{visibility:visible !important}
+  body.printing-cert #certModal{position:static !important;display:block !important;background:#fff !important;padding:0 !important;overflow:visible !important}
+  body.printing-cert .cert-modal-content{border:none !important;box-shadow:none !important;max-width:100% !important}
+  body.printing-cert .cert-paper{max-width:100% !important}
+  body.printing-cert #certPaper{position:absolute;top:0;right:0;left:0;margin:auto}
+}
+
+/* الطباعة: اطبع القصة فقط بشكل نظيف */
+@media print{
+  body.printing-story *{visibility:hidden}
+  body.printing-story #storyModal,body.printing-story #storyModal *{visibility:visible}
+  body.printing-story #storyModal{position:static;background:#fff;display:block;padding:0;overflow:visible}
+  body.printing-story .modal-content{border:none;box-shadow:none;max-width:100%}
+  body.printing-story .modal-close,body.printing-story .modal-actions,body.printing-story .modal-tabs,body.printing-story #backTop,body.printing-story #navbar{display:none !important}
+  body.printing-story .tab-pane{display:block !important}
+  body.printing-story .modal-hero{background:#fff !important;color:#000;border-bottom:2px solid #000}
+  body.printing-story .modal-hero p{color:#333}
+}
+
+/* طباعة الخطة الأسبوعية فقط */
+@media print{
+  body.printing-guide *{visibility:hidden !important}
+  body.printing-guide #planWrap,body.printing-guide #planWrap *{visibility:visible !important}
+  body.printing-guide #planWrap{position:absolute;top:0;right:0;left:0;margin:auto;background:#fff;padding:20px}
+  body.printing-guide .guide-actions{display:none !important}
+}
+
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;padding:50px 20px 110px}
+  .nav-links{position:fixed;top:74px;right:0;left:0;background:var(--paper);flex-direction:column;padding:20px;gap:14px;border-bottom:2px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  #menuBtn{display:block}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+</style>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☪️</text></svg>">
+</head>
+<body>
+
+<!-- شاشة التحميل -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-ornament">﷽</div>
+    <div class="loader-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<!-- الشريط العلوي -->
+<header id="navbar">
+  <div class="container nav-wrap">
+    <a href="#home" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-mosque"></i></span>
+      <span class="logo-text">
+        <strong>نُور الهُدى</strong>
+        <small>قصص الأنبياء والقرآن</small>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">الرئيسية</a>
+      <a href="#stories">قصص الأنبياء</a>
+      <a href="#quranic">قصص قرآنية</a>
+      <a href="#stories" data-goto-sahaba>قصص الصحابة</a>
+      <a href="#methodology">منهج التوثيق</a>
+      <a href="#sources">المصادر</a>
+      <a href="#guide">👨‍👩‍👧 دليل الأهل</a>
+      <a href="#" id="certNavBtn" class="cert-link">🏆 شهادتي</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="themeToggle" title="الوضع الليلي"><i class="fa-solid fa-moon"></i></button>
+      <button id="menuBtn" title="القائمة"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- الواجهة الرئيسية -->
+<section id="home" class="hero">
+  <div class="pattern-overlay"></div>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <h1><span class="ruqaa">قصصُ الأنبياء</span><br>مصابيحُ الهداية عبر الزمان</h1>
+      <p class="hero-desc">
+        رحلة إيمانية موثقة من آدم إلى محمد ﷺ، ومن أصحاب الكهف إلى أبي بكر وعمر —
+        نرويها لك <strong>بالنص القرآني الصحيح</strong> وصحيح السنة وتفسير الأئمة،
+        مع <strong>استماع صوتي ومشاركة وطباعة</strong>، بلغة جميلة وخطوط عربية أصيلة.
+      </p>
+      <div class="hero-quran">
+        <i class="fa-solid fa-quote-right"></i>
+        <p>﴿ نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ ﴾ <span>[يوسف: 3]</span></p>
+      </div>
+      <div class="hero-btns">
+        <a href="#stories" class="btn btn-gold"><i class="fa-solid fa-book-open"></i> ابدأ القراءة</a>
+        <a href="#methodology" class="btn btn-outline"><i class="fa-solid fa-shield-halved"></i> منهجنا في التوثيق</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-count="20">20</strong><span>قصة موثقة</span></div>
+        <div><strong data-count="25">25</strong><span>نبياً مذكوراً</span></div>
+        <div><strong>100%</strong><span>مصادر صحيحة</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="ornament-frame">
+        <div class="frame-head">✦ حديث شريف ✦</div>
+        <p class="hadith">«بَلِّغُوا عَنِّي وَلَوْ آيَةً»</p>
+        <small>صحيح البخاري (3461)</small>
+        <div class="divider">❖ ❖ ❖</div>
+        <div class="frame-head">✦ آية كريمة ✦</div>
+        <p class="aya">﴿ لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِّأُولِي الْأَلْبَابِ ﴾</p>
+        <small>[يوسف: 111]</small>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,60 C360,120 1080,0 1440,60 L1440,90 L0,90 Z"></path></svg>
+  </div>
+</section>
+
+<!-- البحث والتصنيف -->
+<section id="stories" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">❖ مكتبة القصص ❖</span>
+      <h2 class="ruqaa-title">قصص الأنبياء والصحابة والقصص القرآنية</h2>
+      <p>اختر قصة لتقرأها أو تستمع إليها صوتياً، مع الآيات والدروس والمصادر — ويمكنك مشاركتها وطباعتها.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="ابحث عن نبي أو صحابي أو قصة... (مثال: عمر، يوسف، الكهف)">
+      </div>
+      <div class="filters" id="quranic">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="prophets">قصص الأنبياء</button>
+        <button class="filter-btn" data-filter="quranic">قصص قرآنية</button>
+        <button class="filter-btn" data-filter="sahaba">قصص الصحابة ⭐ جديد</button>
+        <button class="filter-btn" data-filter="seerah">السيرة</button>
+        <button class="filter-btn fav-filter" data-filter="fav">❤️ مفضلتي <span id="favCount" class="fav-count">0</span></button>
+      </div>
+    </div>
+
+    <div id="storiesGrid" class="stories-grid"></div>
+    <div id="noResults" class="no-results" style="display:none">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <p>لا توجد نتائج مطابقة، جرّب كلمة أخرى.</p>
+    </div>
+
+    <!-- بانر الشهادة والتقدم -->
+    <div id="certBanner" class="cert-banner">
+      <div class="cert-banner-text">
+        <strong>🏆 شهادة بطل قصص الأنبياء</strong>
+        <span id="certProgressText">أكمل اختبارات القصص الـ20 واحصل على شهادتك باسمك!</span>
+      </div>
+      <div class="cert-bar"><span id="certBarFill"></span></div>
+      <button class="btn btn-gold" id="certOpenBtn"><i class="fa-solid fa-award"></i> شهادتي وتقدمي</button>
+    </div>
+
+    <!-- تحدي الأسبوع ⏳ -->
+    <div id="weeklyBanner" class="weekly-banner">
+      <div class="weekly-head">
+        <strong>⏳ تحدي الأسبوع: من يجمع 30 نجمة أولاً؟</strong>
+        <span id="weeklyTimer" class="weekly-timer">⏳ جارٍ حساب الوقت...</span>
+      </div>
+      <p class="weekly-sub">من السبت إلى الجمعة — تُحتسب أفضل نتيجة لكل قصة خلال الأسبوع. أعيدوا الاختبارات وحسّنوا نجومكم!</p>
+      <div id="weeklyBoard" class="weekly-board"></div>
+      <div id="weeklyWinner" class="weekly-winner" style="display:none"></div>
+    </div>
+  </div>
+</section>
+
+<!-- منهج التوثيق -->
+<section id="methodology" class="section methodology">
+  <div class="container">
+    <div class="section-head light">
+      <span class="kicker">❖ الأمانة العلمية ❖</span>
+      <h2 class="ruqaa-title">منهجنا في توثيق القصص</h2>
+      <p>لا نروي الإسرائيليات الضعيفة، ولا القصص الشعبية بلا سند. نلتزم بهذا الترتيب:</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="m-num">1</div>
+        <h3><i class="fa-solid fa-book-quran"></i> القرآن الكريم</h3>
+        <p>المصدر الأول المعصوم. نذكر السورة ورقم الآية بدقة، ونعتمد النص العثماني، ولا نفسر إلا بقول الأئمة.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-num">2</div>
+        <h3><i class="fa-solid fa-scroll"></i> صحيح السنة</h3>
+        <p>صحيح البخاري وصحيح مسلم والسنن الصحيحة فقط، مع ذكر رقم الحديث. ونترك الضعيف والموضوع.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-num">3</div>
+        <h3><i class="fa-solid fa-feather"></i> تفسير السلف</h3>
+        <p>تفسير ابن كثير والطبري والقرطبي، وكتاب «البداية والنهاية» لابن كثير و«قصص الأنبياء» له.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-num">4</div>
+        <h3><i class="fa-solid fa-triangle-exclamation"></i> التنبيه على الضعيف</h3>
+        <p>إذا ذكرنا خبراً من الإسرائيليات للفائدة ننبه أنه «لا يصدق ولا يكذب» ولا يبنى عليه حكم.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- المصادر -->
+<section id="sources" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">❖ مراجعنا المعتمدة ❖</span>
+      <h2 class="ruqaa-title">المصادر الصحيحة المعتمدة</h2>
+    </div>
+    <div class="sources-grid">
+      <div class="source-card"><i class="fa-solid fa-book-quran"></i><h3>القرآن الكريم</h3><p>برواية حفص عن عاصم، المصحف العثماني</p></div>
+      <div class="source-card"><i class="fa-solid fa-book"></i><h3>صحيح البخاري</h3><p>للإمام محمد بن إسماعيل البخاري (ت 256هـ)</p></div>
+      <div class="source-card"><i class="fa-solid fa-book"></i><h3>صحيح مسلم</h3><p>للإمام مسلم بن الحجاج (ت 261هـ)</p></div>
+      <div class="source-card"><i class="fa-solid fa-books"></i><h3>تفسير ابن كثير</h3><p>تفسير القرآن العظيم (ت 774هـ)</p></div>
+      <div class="source-card"><i class="fa-solid fa-landmark"></i><h3>البداية والنهاية</h3><p>الحافظ ابن كثير — قسم قصص الأنبياء</p></div>
+      <div class="source-card"><i class="fa-solid fa-mosque"></i><h3>تفسير الطبري</h3><p>جامع البيان (ت 310هـ) والقرطبي</p></div>
+    </div>
+    <div class="alert-box">
+      <i class="fa-solid fa-circle-info"></i>
+      <div>
+        <strong>تنبيه منهجي:</strong> اعتمدنا في كل قصة على الآيات القرآنية الصريحة والأحاديث الصحيحة.
+        وما ورد في كتب القصاص الشعبية من تفاصيل (كأسماء إخوة يوسف، أو عدد أهل الكهف، أو لون بقرة بني إسرائيل)
+        مما لا دليل عليه، تركناه عمداً التزاماً بالأمانة.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- دليل الأهل 👨‍👩‍👧 -->
+<section id="guide" class="section guide-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">❖ للأمهات والآباء والمعلمات ❖</span>
+      <h2 class="ruqaa-title">دليل الأهل: كيف تستخدمون الموقع مع أطفالكم؟</h2>
+      <p>خطة عملية بالخطوات المصورة: من أول قصة حتى شهادة البطل — في 15 دقيقة يوميًا فقط!</p>
+    </div>
+
+    <h3 class="guide-h">🚀 الرحلة في 6 خطوات</h3>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-emoji">📚</div><h4>اختاروا قصة واحدة</h4><p>ابدأوا بقصة محببة: <strong>يوسف</strong> أو <strong>أصحاب الكهف</strong> أو <strong>بلال</strong>. قصة واحدة في الجلسة تكفي!</p></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-emoji">🎧</div><h4>اقرأوا واستمعوا معًا</h4><p>اقرأوا القصة بصوت عالٍ، أو شغّلوا زر <strong>«استمع للقصة»</strong> واستمعوا معًا بتركيز.</p></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-emoji">💬</div><h4>ناقشوا بثلاثة أسئلة</h4><p>اسألوا: <em>ماذا تعلمت؟ من بطلك في القصة؟ وماذا كنت ستفعل مكانه؟</em> المناقشة أهم من الحفظ!</p></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-emoji">🧒</div><h4>حلّوا الاختبار</h4><p>افتحوا تبويب <strong>«اختبار الأطفال»</strong> ودعوا الطفل يجيب بنفسه — 3 أسئلة ممتعة فقط، والخطأ مسموح!</p></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-emoji">⭐</div><h4>اجمعوا النجوم</h4><p>العلامة الكاملة = 3 نجوم ⭐⭐⭐. شجعوا الإعادة للتحسين — فالتكرار يثبّت المعلومة.</p></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-emoji">🏆</div><h4>احتفلوا بالشهادة</h4><p>عند إتمام القصص: اكتبوا الاسم في <strong>«شهادتي»</strong> واطبعوها وعلّقوها في غرفة الطفل!</p></div>
+    </div>
+
+    <div id="planWrap">
+      <h3 class="guide-h">🗓️ الخطة الأسبوعية المقترحة (15 دقيقة يوميًا)</h3>
+      <div class="plan-table">
+        <div class="plan-row plan-head"><span>اليوم</span><span>النشاط (15 دقيقة)</span><span>المدة</span></div>
+        <div class="plan-row"><span>السبت 🌙</span><span>قصة جديدة: قراءة + استماع معًا</span><span>15 دقيقة</span></div>
+        <div class="plan-row"><span>الأحد 💬</span><span>مناقشة الدروس + تلوين أو رسم مشهد من القصة</span><span>15 دقيقة</span></div>
+        <div class="plan-row"><span>الاثنين 🧒</span><span>حل اختبار القصة + مراجعة قصة قديمة من المفضلة ❤️</span><span>15 دقيقة</span></div>
+        <div class="plan-row"><span>الأربعاء 🌙</span><span>قصة جديدة ثانية + اختبارها</span><span>15 دقيقة</span></div>
+        <div class="plan-row"><span>الجمعة 🎉</span><span>تحدي العائلة: من يجمع نجومًا أكثر؟ ثم إعلان بطل الأسبوع!</span><span>20 دقيقة</span></div>
+      </div>
+      <p class="plan-note">💡 بهذه الخطة يتم الطفل الـ20 قصة في حوالي 10 أسابيع — بمعدل مريح وممتع!</p>
+      <div class="guide-actions">
+        <button id="printPlanBtn" class="action-btn print"><i class="fa-solid fa-print"></i> اطبع الخطة وتعليقها</button>
+      </div>
+    </div>
+
+    <h3 class="guide-h">👶 نصائح حسب العمر</h3>
+    <div class="ages-grid">
+      <div class="age-card"><div class="age-emoji">🧸</div><h4>4 – 6 سنوات</h4><p>ركّزوا على <strong>الاستماع</strong> والصور. اسألوا شفهيًا سؤالًا واحدًا، وكافئوا بالنجوم والملصقات. لا تضغطوا للقراءة!</p></div>
+      <div class="age-card"><div class="age-emoji">📖</div><h4>7 – 9 سنوات</h4><p>اقرأوا <strong>بالتناوب</strong> فقرة بفقرة، ثم حلّوا الاختبار معًا. دعوهم يضيفون قصصهم للمفضلة ❤️ بأنفسهم.</p></div>
+      <div class="age-card"><div class="age-emoji">🌟</div><h4>10 سنوات فأكثر</h4><p>قراءة <strong>مستقلة</strong> + مناقشة عميقة للدروس + منافسة حقيقية في تحدي الأسبوع ولوحة الصدارة.</p></div>
+    </div>
+
+    <h3 class="guide-h">❓ أسئلة شائعة</h3>
+    <div class="faq-list">
+      <details class="faq-item"><summary>🌐 هل يحتاج الموقع إنترنت؟</summary><p>الموقع يعمل من ملف واحد بدون تثبيت. أول مرة فقط يحتاج إنترنت لتحميل الخطوط الجميلة والأيقونات، ثم يحفظها المتصفح. القصص والاختبارات نفسها تعمل دائمًا.</p></details>
+      <details class="faq-item"><summary>💾 أين تُحفظ نتائج أطفالي؟</summary><p>على نفس المتصفح والجهاز (في المتصفح نفسه). نصيحة: استخدموا نفس المتصفح دائمًا حتى لا تضيع النجوم! وكل طفل له ملف مستقل داخل <strong>«شهادتي»</strong>.</p></details>
+      <details class="faq-item"><summary>👨‍👩‍👧‍👦 كيف أضيف أكثر من طفل؟</summary><p>افتحوا <strong>«🏆 شهادتي»</strong> من القائمة → قسم المسابقة العائلية → اكتبوا الاسم واضغطوا «إضافة بطل» (حتى 6 أبطال) → بدّلوا بينهم بالضغط على أسمائهم.</p></details>
+      <details class="faq-item"><summary>🖨️ كيف أطبع الشهادة؟</summary><p>من نافذة «شهادتي»: اكتبوا اسم الطفل → اضغطوا «طباعة الشهادة» → ستُطبع الشهادة وحدها بورقة نظيفة جاهزة للتعليق!</p></details>
+      <details class="faq-item"><summary>🔊 الأصوات تزعجنا، كيف نوقفها؟</summary><p>من نافذة «شهادتي» اضغطوا زر <strong>«🔇 الصوت: متوقف»</strong> وسيتذكر الموقع اختياركم دائمًا.</p></details>
+      <details class="faq-item"><summary>⏳ كيف يعمل تحدي الأسبوع؟</summary><p>من السبت للجمعة: كل اختبار يُحسّن نجوم الأسبوع الخاصة بطفلك (حتى 3 نجوم للقصة). من يصل لـ<strong>30 نجمة</strong> أولًا يُتوَّج بطل الأسبوع 🏆 — ثم يبدأ تحدٍّ جديد السبت!</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- دعاء -->
+<section class="dua-section">
+  <div class="container">
+    <p class="dua">﴿ رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ ﴾ <span>[الحشر: 10]</span></p>
+    <p class="dua-sub">نسأل الله أن ينفع بهذا العمل وأن يجعله خالصاً لوجهه الكريم</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3>🕌 نُور الهُدى</h3>
+      <p>موقع تعليمي غير ربحي لنشر قصص الأنبياء الصحيحة. راجع كل معلومة في مصحفك وكتب السنة.</p>
+    </div>
+    <div>
+      <h4>أقسام الموقع</h4>
+      <a href="#stories">قصص الأنبياء</a>
+      <a href="#quranic">قصص قرآنية</a>
+      <a href="#stories">قصص الصحابة ⭐</a>
+      <a href="#guide">👨‍👩‍👧 دليل الأهل</a>
+      <a href="#methodology">منهج التوثيق</a>
+    </div>
+    <div>
+      <h4>نصيحة</h4>
+      <p>قال ﷺ: «بَلِّغُوا عَنِّي وَلَوْ آيَةً» — شارك الموقع لتعم الفائدة.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">صُنع بحب لخدمة القرآن والسنة © 2026 — نُور الهُدى</div>
+</footer>
+
+<!-- نافذة القصة -->
+<div id="storyModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-hero" id="modalHero">
+      <span class="modal-cat" id="modalCat"></span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalRefs"></p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-actions">
+        <button id="audioBtn" class="action-btn audio"><i class="fa-solid fa-headphones"></i> استمع للقصة</button>
+        <button id="favBtn" class="action-btn fav"><i class="fa-regular fa-heart"></i> مفضلتي</button>
+        <div class="share-wrap">
+          <button id="shareBtn" class="action-btn share"><i class="fa-solid fa-share-nodes"></i> مشاركة</button>
+          <div id="shareBox" class="share-box">
+            <button onclick="shareTo('whatsapp')"><i class="fa-brands fa-whatsapp"></i> واتساب</button>
+            <button onclick="shareTo('telegram')"><i class="fa-brands fa-telegram"></i> تيليجرام</button>
+            <button onclick="shareTo('x')"><i class="fa-brands fa-x-twitter"></i> إكس</button>
+            <button onclick="shareTo('native')"><i class="fa-solid fa-share"></i> مشاركة عامة</button>
+            <button onclick="shareTo('copy')"><i class="fa-solid fa-copy"></i> نسخ الرابط</button>
+          </div>
+        </div>
+        <button id="printBtn" class="action-btn print"><i class="fa-solid fa-print"></i> طباعة</button>
+      </div>
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="story">📖 القصة</button>
+        <button class="tab-btn" data-tab="verses">🕌 الآيات</button>
+        <button class="tab-btn" data-tab="lessons">💡 الدروس</button>
+        <button class="tab-btn quiz-tab" data-tab="quiz">🧒 اختبار الأطفال</button>
+        <button class="tab-btn" data-tab="sourcesTab">📚 المصادر</button>
+      </div>
+      <div class="tab-pane active" id="tab-story"></div>
+      <div class="tab-pane" id="tab-verses"></div>
+      <div class="tab-pane" id="tab-lessons"></div>
+      <div class="tab-pane" id="tab-quiz"></div>
+      <div class="tab-pane" id="tab-sourcesTab"></div>
+    </div>
+  </div>
+</div>
+
+<button id="backTop" title="العودة للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- نافذة الشهادة -->
+<div id="certModal" class="modal">
+  <div class="modal-content cert-modal-content">
+    <button class="modal-close" id="certClose"><i class="fa-solid fa-xmark"></i></button>
+    <div class="cert-modal-head">
+      <span class="modal-cat">🏆 ركن الأبطال الصغار</span>
+      <h2>شهادة التفوق</h2>
+      <p>أكمل اختبارات القصص، واجمع النجوم، واطبع شهادتك باسمك!</p>
+    </div>
+    <div class="cert-modal-body">
+      <div class="family-section">
+        <div class="family-title">👨‍👩‍👧‍👦 المسابقة العائلية — اختر بطلك!</div>
+        <div id="familyBoard"></div>
+      </div>
+      <label class="kid-label" for="kidName">✏️ اسم البطل الحالي (للطباعة على الشهادة):</label>
+      <input type="text" id="kidName" class="kid-input" placeholder="مثال: عمر عبد الله" maxlength="30">
+      <div id="certStarsGrid" class="cert-stars-grid"></div>
+      <div id="certPaperWrap">
+        <div id="certPaper" class="cert-paper">
+          <div class="cert-frame">
+            <div class="cert-basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="cert-orn">❖ ❖ ❖</div>
+            <h3 class="cert-title">شهادة تقدير وتفوق</h3>
+            <p class="cert-sub">يتشرف موقع <strong>نُور الهُدى</strong> بمنح هذه الشهادة للبطل / البطلة</p>
+            <div id="certKidName" class="cert-name">اسم البطل</div>
+            <p class="cert-sub">لإتمامه اختبارات قصص الأنبياء والصحابة والقصص القرآنية</p>
+            <div id="certLevel" class="cert-level">🌟 بطل قصص الأنبياء</div>
+            <div class="cert-stats">
+              <div><strong id="certScore">0/60</strong><span>مجموع النقاط</span></div>
+              <div><strong id="certStars">0⭐</strong><span>مجموع النجوم</span></div>
+              <div><strong id="certDone">0/20</strong><span>قصص مكتملة</span></div>
+            </div>
+            <div class="cert-foot">
+              <div class="cert-date">📅 التاريخ: <span id="certDate"></span></div>
+              <div class="cert-sign">إدارة موقع نُور الهُدى 🕌<br><small>قصص الأنبياء بالمصادر الصحيحة</small></div>
+            </div>
+            <div class="cert-seal">🏆</div>
+          </div>
+        </div>
+      </div>
+      <div id="certMsg" class="cert-msg"></div>
+      <div class="cert-actions">
+        <button id="certPrintBtn" class="action-btn print"><i class="fa-solid fa-print"></i> طباعة الشهادة</button>
+        <button id="certShareBtn" class="action-btn share"><i class="fa-solid fa-share-nodes"></i> مشاركة إنجازي</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const STORIES = [
+{
+ id:1, title:"آدم عليه السلام — أبو البشر", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"🌍", grad:"linear-gradient(135deg,#0d3b2e,#2a7a5b)",
+ refs:"البقرة 30-39 • الأعراف 11-25 • طه 115-123",
+ desc:"بداية الخلق، سجود الملائكة، الجنة والهبوط إلى الأرض، وقصة التوبة الأولى.",
+ story:[
+ "خلق الله آدم عليه السلام من طين، ونفخ فيه من روحه، وعلّمه الأسماء كلها، ثم أمر الملائكة بالسجود له سجود تكريم لا عبادة، فسجدوا إلا إبليس أبى واستكبر وكان من الكافرين.",
+ "أسكن الله آدم وزوجه حواء الجنة، وأباح لهما كل ثمارها إلا شجرة واحدة نهاهما عنها، فوسوس لهما الشيطان فأكلا منها، فبدت لهما سوآتهما، فتلقى آدم من ربه كلمات فتاب عليه إنه هو التواب الرحيم.",
+ "قال تعالى: ﴿ فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ﴾، وهذه أول توبة في تاريخ البشر، تعلمنا أن باب التوبة مفتوح مهما عظم الذنب.",
+ "أهبط الله آدم إلى الأرض ليكون خليفة فيها، ووعده وذريته بالهدى: فمن تبع هدى الله فلا خوف عليهم ولا هم يحزنون. وعاش آدم ألف سنة كما ثبت في الصحيح، يعبد الله ويعمر الأرض."
+ ],
+ verses:[
+  {t:"﴿ وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً ﴾", r:"البقرة: 30"},
+  {t:"﴿ فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ ﴾", r:"البقرة: 37"},
+  {t:"﴿ قَالَ اهْبِطَا مِنْهَا جَمِيعًا ۖ بَعْضُكُمْ لِبَعْضٍ عَدُوٌّ ۖ فَإِمَّا يَأْتِيَنَّكُم مِّنِّي هُدًى فَمَنِ اتَّبَعَ هُدَايَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ ﴾", r:"طه: 123"}
+ ],
+ lessons:["التوبة الصادقة تمحو الذنب مهما عظم — فتلقى آدم كلمات التوبة فتاب الله عليه.","الكبر والحسد هما داء إبليس الأول، فاحذرهما.","العلم شرف الإنسان: ميّز الله آدم بالعلم قبل الخلافة.","الشيطان عدو مبين فلا تتبع خطواته."],
+ sources:["القرآن الكريم: البقرة 30-39، الأعراف 11-25، طه 115-123","صحيح البخاري (3326): «خلق الله آدم على صورته، طوله ستون ذراعاً»","صحيح مسلم (2841) في صفة آدم وأهل الجنة","تفسير ابن كثير (1/ 215-250)، البداية والنهاية لابن كثير (1/ 98-135)"]
+},
+{
+ id:2, title:"نوح عليه السلام — شيخ المرسلين", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"🕊️", grad:"linear-gradient(135deg,#123a6d,#2a8a9e)",
+ refs:"هود 25-49 • نوح 1-28 • العنكبوت 14",
+ desc:"950 سنة من الدعوة والصبر، وصناعة السفينة، والطوفان العظيم.",
+ story:[
+ "أرسل الله نوحاً عليه السلام إلى قوم يعبدون الأصنام (ودّاً وسواعاً ويغوث ويعوق ونسراً)، فلبث فيهم ألف سنة إلا خمسين عاماً يدعوهم ليلاً ونهاراً وسراً وجهاراً، فما آمن معه إلا قليل.",
+ "سخر منه قومه وهو يصنع السفينة بوحي الله في الصحراء، فكان رده: ﴿ إِن تَسْخَرُوا مِنَّا فَإِنَّا نَسْخَرُ مِنكُمْ كَمَا تَسْخَرُونَ ﴾.",
+ "جاء أمر الله وفار التنور، وحمل نوح في السفينة من كل زوجين اثنين وأهله ومن آمن، وغرق حتى ابنه الذي أبى الركوب وقال سآوي إلى جبل يعصمني، فكان من المغرقين.",
+ "استوت السفينة على الجودي، وجعل الله ذرية نوح هم الباقين، وهو أول الرسل وأولو العزم، وضرب الله به المثل في الصبر على الدعوة."
+ ],
+ verses:[
+  {t:"﴿ وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِ فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا ﴾", r:"العنكبوت: 14"},
+  {t:"﴿ وَاصْنَعِ الْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا ﴾", r:"هود: 37"},
+  {t:"﴿ وَقِيلَ يَا أَرْضُ ابْلَعِي مَاءَكِ وَيَا سَمَاءُ أَقْلِعِي وَغِيضَ الْمَاءُ ﴾", r:"هود: 44"}
+ ],
+ lessons:["الصبر على الدعوة: 950 سنة دون يأس.","النجاة بالإيمان لا بالنسب — فابن نوح غرق لكفره.","اتباع الوحي ولو خالف العقول (سفينة في الصحراء).","عاقبة الاستهزاء بالمرسلين وخيمة."],
+ sources:["القرآن: هود 25-49، سورة نوح كاملة، العنكبوت 14","صحيح البخاري (3340) حديث الشفاعة: «ائتوا نوحاً أول رسول»","صحيح مسلم (194) في الشفاعة","تفسير ابن كثير (4/ 323)، البداية والنهاية (1/ 156-184)"]
+},
+{
+ id:3, title:"إبراهيم عليه السلام — أبو الأنبياء", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"🕋", grad:"linear-gradient(135deg,#5b3a0d,#c9a45c)",
+ refs:"البقرة 124-133 • الأنعام 74-83 • الصافات 83-113",
+ desc:"تحطيم الأصنام، والنار التي صارت برداً وسلاماً، وبناء الكعبة، والذبح العظيم.",
+ story:[
+ "نشأ إبراهيم في قوم يعبدون الكواكب والأصنام، فحاجّهم بالعقل: رأى الكوكب والقمر والشمس تأفل، فقال: ﴿ لَا أُحِبُّ الْآفِلِينَ ﴾ ودعاهم إلى الله وحده.",
+ "حطّم الأصنام إلا كبيرهم ليُثبت عجزها، فحكموا عليه بالحرق في نار عظيمة، فقال: حسبنا الله ونعم الوكيل، فقال الله: ﴿ يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ ﴾.",
+ "هاجر بأهله إلى الشام ومصر ومكة، وترك هاجر وإسماعيل عند البيت الحرام، ففجّر الله زمزم، ثم أمره الله بذبح ابنه إسماعيل ابتلاءً، فسلّما لله، ففداه الله بذبح عظيم.",
+ "رفع إبراهيم وإسماعيل قواعد البيت الحرام ودعوا: ﴿ رَبَّنَا تَقَبَّلْ مِنَّا ﴾، وهو الذي سمانا المسلمين، وجعله الله إماماً وخليلاً."
+ ],
+ verses:[
+  {t:"﴿ قُلْنَا يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ ﴾", r:"الأنبياء: 69"},
+  {t:"﴿ إِنِّي جَاعِلُكَ لِلنَّاسِ إِمَامًا ﴾", r:"البقرة: 124"},
+  {t:"﴿ وَإِذْ يَرْفَعُ إِبْرَاهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَإِسْمَاعِيلُ ﴾", r:"البقرة: 127"},
+  {t:"﴿ وَفَدَيْنَاهُ بِذِبْحٍ عَظِيمٍ ﴾", r:"الصافات: 107"}
+ ],
+ lessons:["التوحيد الخالص والبراءة من الشرك.","اليقين: النار لا تحرق إلا بإذن الله.","الامتثال والتسليم لأمر الله ولو كان الذبح.","الدعاء عند العمل الصالح: ربنا تقبل منا."],
+ sources:["القرآن: البقرة 124-133، الأنعام 74-83، الصافات 83-113، الأنبياء 51-73","صحيح البخاري (3352-3365) في قصص إبراهيم وهاجر وزمزم","صحيح مسلم (2371) فضل إبراهيم","تفسير ابن كثير، البداية والنهاية (1/ 185-250)"]
+},
+{
+ id:4, title:"يوسف عليه السلام — أحسن القصص", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"🌙", grad:"linear-gradient(135deg,#3b1d5e,#8a5fc0)",
+ refs:"سورة يوسف كاملة (111 آية)",
+ desc:"الرؤيا والجب والقصر والسجن ثم التمكين — السورة الوحيدة التي نزلت قصة كاملة متصلة.",
+ story:[
+ "رأى يوسف أحد عشر كوكباً والشمس والقمر له ساجدين، فحذّره أبوه يعقوب من إخوته، فكاد له إخوته حسداً وألقوه في غيابة الجب، فالتقطته سيارة وباعوه في مصر بثمن بخس.",
+ "نشأ في بيت العزيز، وراودته امرأة العزيز عن نفسه فاستعصم وقال معاذ الله، وشهد شاهد من أهلها ببراءته، ثم دخل السجن مظلوماً بضع سنين.",
+ "في السجن دعا إلى التوحيد وفسّر الرؤى، ثم فسّر رؤيا الملك (سبع بقرات سمان) فجُعل على خزائن الأرض، ومكن الله له.",
+ "جاء إخوته يطلبون الميرة فعفا عنهم: ﴿ لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ ﴾، وجاء بأبويه من البدو، وتحققت الرؤيا، وختم شاكراً: ﴿ تَوَفَّنِي مُسْلِمًا وَأَلْحِقْنِي بِالصَّالِحِينَ ﴾."
+ ],
+ verses:[
+  {t:"﴿ نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ ﴾", r:"يوسف: 3"},
+  {t:"﴿ قَالَ مَعَاذَ اللَّهِ ۖ إِنَّهُ رَبِّي أَحْسَنَ مَثْوَايَ ﴾", r:"يوسف: 23"},
+  {t:"﴿ لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ ۖ يَغْفِرُ اللَّهُ لَكُمْ ﴾", r:"يوسف: 92"},
+  {t:"﴿ لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِّأُولِي الْأَلْبَابِ ﴾", r:"يوسف: 111"}
+ ],
+ lessons:["العفة أمام الفتنة طريق التمكين.","الحسد يفرق الإخوة فاحذره.","العفو عند المقدرة من أخلاق الأنبياء.","الفرج بعد الكرب: من الجب والسجن إلى العرش."],
+ sources:["القرآن: سورة يوسف كاملة","صحيح البخاري (3390): «إن يوسف نبي الله ابن نبي الله»","تفسير ابن كثير (4/ 370-480)، البداية والنهاية (1/ 251-270)"]
+},
+{
+ id:5, title:"موسى عليه السلام — كليم الله", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"🌊", grad:"linear-gradient(135deg,#0b3d5e,#1e9e8a)",
+ refs:"طه 9-98 • القصص 3-46 • الشعراء 10-68",
+ desc:"أكثر نبي ذُكر في القرآن — من النيل إلى شق البحر، ومن الطور إلى بني إسرائيل.",
+ story:[
+ "وُلد موسى في زمن فرعون الذي كان يذبّح أبناء بني إسرائيل، فأوحى الله لأمه أن ترضعه ثم تلقيه في اليم، فالتقطه آل فرعون وربّوه في قصره.",
+ "كلّمه الله عند جبل الطور: ﴿ وَأَنَا اخْتَرْتُكَ فَاسْتَمِعْ لِمَا يُوحَىٰ ﴾، وأيده بتسع آيات: العصا واليد البيضاء والطوفان والجراد وغيرها، وأرسله مع أخيه هارون إلى فرعون.",
+ "جمع فرعون السحرة فألقوا حبالهم، فألقى موسى عصاه فإذا هي تلقف ما يأفكون، فآمن السحرة وسجدوا ولو قُطّعت أيديهم.",
+ "خرج ببني إسرائيل فأدركهم فرعون وجيشه، فأوحى الله: ﴿ اضْرِب بِّعَصَاكَ الْبَحْرَ ﴾ فانفلق فكان كل فرق كالطود العظيم، فنجا موسى وغرق فرعون وهو يقول آمنت — فلم ينفعه إيمان اليأس."
+ ],
+ verses:[
+  {t:"﴿ وَأَنَا اخْتَرْتُكَ فَاسْتَمِعْ لِمَا يُوحَىٰ ﴾", r:"طه: 13"},
+  {t:"﴿ فَأَلْقَىٰ عَصَاهُ فَإِذَا هِيَ ثُعْبَانٌ مُّبِينٌ ﴾", r:"الشعراء: 32"},
+  {t:"﴿ كَلَّا ۖ إِنَّ مَعِيَ رَبِّي سَيَهْدِينِ ﴾", r:"الشعراء: 62"},
+  {t:"﴿ وَأَنجَيْنَا مُوسَىٰ وَمَن مَّعَهُ أَجْمَعِينَ ﴾", r:"الشعراء: 65"}
+ ],
+ lessons:["الثقة بالله عند استحكام الكرب: كلا إن معي ربي.","الدعوة بالحكمة: قولا له قولاً ليناً.","ثبات السحرة بعد الإيمان درس في التضحية.","الظلم مهما طال فنهايته الغرق."],
+ sources:["القرآن: طه، القصص، الشعراء، الأعراف 103-162، البقرة 49-61","صحيح البخاري (3398، 3401) ومسلم (1130) في عاشوراء ونجاة موسى","تفسير ابن كثير، البداية والنهاية (1/ 271-330)"]
+},
+{
+ id:6, title:"داود وسليمان عليهما السلام", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"👑", grad:"linear-gradient(135deg,#6d4a0d,#d4a017)",
+ refs:"البقرة 251 • ص 17-40 • النمل 15-44 • سبأ 10-14",
+ desc:"الملك والنبوة — الزبور، وتسخير الجبال والطير والريح والجن.",
+ story:[
+ "قتل داود جالوتَ طالوتَ بإذن الله وآتاه الله الملك والحكمة وعلّمه مما يشاء، وأنزل عليه الزبور، وألان له الحديد، وسخّر معه الجبال يسبحن والطير.",
+ "كان داود أعبد الناس: يصوم يوماً ويفطر يوماً، ويقوم نصف الليل، وكان يأكل من عمل يده رغم الملك.",
+ "ورث سليمان داود، وعلّمه الله منطق الطير، وسخّر له الريح والجن يعملون بين يديه، وفهم لغة النملة فتبسم ضاحكاً من قولها وشكر الله.",
+ "قصته مع ملكة سبأ بلقيس: أرسل إليها كتاباً ألا تعلوا عليّ وأتوني مسلمين، فجاءت مسلمة مع سليمان لله رب العالمين، ومات سليمان على عصاه فما دل الجن على موته إلا دابة الأرض."
+ ],
+ verses:[
+  {t:"﴿ وَقَتَلَ دَاوُودُ جَالُوتَ وَآتَاهُ اللَّهُ الْمُلْكَ وَالْحِكْمَةَ ﴾", r:"البقرة: 251"},
+  {t:"﴿ يَا جِبَالُ أَوِّبِي مَعَهُ وَالطَّيْرَ ۖ وَأَلَنَّا لَهُ الْحَدِيدَ ﴾", r:"سبأ: 10"},
+  {t:"﴿ رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ ﴾", r:"النمل: 19"}
+ ],
+ lessons:["الشكر يحفظ النعم ويزيدها.","العبادة مع المسؤولية: داود ملك عابد عامل.","العدل في الحكم كما أمر الله داود.","تسخير الدنيا لخدمة الدين لا العكس."],
+ sources:["القرآن: ص، النمل، سبأ، البقرة 251","صحيح البخاري (3417) ومسلم (1159): «أحب الصيام إلى الله صيام داود»","تفسير ابن كثير، البداية والنهاية (2/ 15-40)"]
+},
+{
+ id:7, title:"أيوب عليه السلام — الصبر الجميل", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"🤲", grad:"linear-gradient(135deg,#2d4a22,#7aa35a)",
+ refs:"الأنبياء 83-84 • ص 41-44",
+ desc:"سنوات من المرض والفقد لم تهز إيمانه — مدرسة الصبر والرضا.",
+ story:[
+ "أنعم الله على أيوب بالمال والولد والصحة، ثم ابتلاه بفقد ذلك كله ومرض شديد طال سنوات، فلم يزدد إلا صبراً وذكراً.",
+ "لم يدعُ على قومه ولم يتسخط، بل نادى ربه بأدب عظيم: ﴿ أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ ﴾ — شكوى إلى الله لا شكوى من الله.",
+ "استجاب الله له: ﴿ فَاسْتَجَبْنَا لَهُ فَكَشَفْنَا مَا بِهِ مِن ضُرٍّ ﴾ وأمره: ﴿ ارْكُضْ بِرِجْلِكَ ۖ هَٰذَا مُغْتَسَلٌ بَارِدٌ وَشَرَابٌ ﴾ فشفاه الله وآتاه أهله ومثلهم معهم رحمة وذكرى للعابدين.",
+ "ضرب الله به المثل: ﴿ إِنَّا وَجَدْنَاهُ صَابِرًا ۚ نِّعْمَ الْعَبْدُ ۖ إِنَّهُ أَوَّابٌ ﴾."
+ ],
+ verses:[
+  {t:"﴿ أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ ﴾", r:"الأنبياء: 83"},
+  {t:"﴿ إِنَّا وَجَدْنَاهُ صَابِرًا ۚ نِّعْمَ الْعَبْدُ ﴾", r:"ص: 44"}
+ ],
+ lessons:["أدب الدعاء عند البلاء: شكوى بلا تسخط.","الصبر الجميل مفتاح الفرج.","البلاء رفعة للصالحين لا هوان.","الشفاء بيد الله وحده."],
+ sources:["القرآن: الأنبياء 83-84، ص 41-44","صحيح البخاري تعليقاً في المرض والصبر، ومسلم (2999): «عجباً لأمر المؤمن»","تفسير ابن كثير (5/ 351)، البداية والنهاية (1/ 294-298)"]
+},
+{
+ id:8, title:"يونس عليه السلام — ذو النون", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"🐋", grad:"linear-gradient(135deg,#0b2e4d,#3a9ec2)",
+ refs:"الأنبياء 87-88 • الصافات 139-148 • القلم 48-50",
+ desc:"ثلاث ظلمات: الليل والبحر وبطن الحوت — ودعوة لا يردها الله.",
+ story:[
+ "أرسل يونس إلى قومه في نينوى فدعاهم فأعرضوا، فغضب وخرج من بينهم قبل أن يأذن الله له، وركب سفينة فاضطربت، فاقترعوا فكان من المدحضين فألقي في البحر.",
+ "التقمه الحوت وهو مليم، فصار في ظلمات ثلاث: ظلمة الليل وظلمة البحر وظلمة بطن الحوت، فنادى في الظلمات: ﴿ لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ ﴾.",
+ "لولا أنه كان من المسبحين للبث في بطنه إلى يوم يبعثون، فاستجاب الله له ونجاه، وأنبت عليه شجرة من يقطين، وأرسله إلى مائة ألف أو يزيدون فآمنوا فمتعهم إلى حين.",
+ "قال ﷺ: «دعوة ذي النون إذ دعا بها وهو في بطن الحوت لا يدعو بها رجل مسلم في شيء قط إلا استجاب الله له»."
+ ],
+ verses:[
+  {t:"﴿ فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ ﴾", r:"الأنبياء: 87"},
+  {t:"﴿ فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ ۚ وَكَذَٰلِكَ نُنجِي الْمُؤْمِنِينَ ﴾", r:"الأنبياء: 88"}
+ ],
+ lessons:["الاعتراف بالذنب والتسبيح يفرج الكروب.","لا تيأس من هداية قومك فتتعجل.","دعوة ذي النون مستجابة فاحفظها.","التسبيح سبب النجاة."],
+ sources:["القرآن: الأنبياء 87-88، الصافات 139-148","سنن الترمذي (3505) وصححه: دعوة ذي النون","صحيح مسلم في فضل الذكر","تفسير ابن كثير (5/ 361)، البداية والنهاية (1/ 299-304)"]
+},
+{
+ id:9, title:"مريم وعيسى عليهما السلام", cat:"prophets", catLabel:"قصص الأنبياء",
+ icon:"✨", grad:"linear-gradient(135deg,#5e2b6d,#c084d4)",
+ refs:"آل عمران 33-59 • مريم 16-36 • المائدة 110-120",
+ desc:"الاصطفاء والولادة المعجزة، وكلام المهد، ورفعه إلى السماء.",
+ story:[
+ "اصطفى الله مريم ابنة عمران على نساء العالمين، وكفلها زكريا، وكان يجد عندها رزقاً من غير كسب: ﴿ هُوَ مِنْ عِندِ اللَّهِ ﴾.",
+ "بشّرتها الملائكة بكلمة منه اسمه المسيح عيسى ابن مريم وجيهاً في الدنيا والآخرة، فتعجبت أنى يكون لي غلام ولم يمسسني بشر، قال: كذلك الله يخلق ما يشاء.",
+ "اعتزلت مكاناً شرقياً فأجاءها المخاض إلى جذع النخلة، فولدت عيسى، فأتت به قومها تحمله، فأشارت إليه فتكلم في المهد صبياً: ﴿ إِنِّي عَبْدُ اللَّهِ آتَانِيَ الْكِتَابَ وَجَعَلَنِي نَبِيًّا ﴾.",
+ "أيده الله بالإنجيل وبمعجزات: يبرئ الأكمه والأبرص ويحيي الموتى بإذن الله، ولما أرادوا قتله رفعه الله إليه وما قتلوه يقيناً، وسينزل آخر الزمان حكماً عدلاً."
+ ],
+ verses:[
+  {t:"﴿ وَإِذْ قَالَتِ الْمَلَائِكَةُ يَا مَرْيَمُ إِنَّ اللَّهَ اصْطَفَاكِ ﴾", r:"آل عمران: 42"},
+  {t:"﴿ قَالَ إِنِّي عَبْدُ اللَّهِ آتَانِيَ الْكِتَابَ وَجَعَلَنِي نَبِيًّا ﴾", r:"مريم: 30"},
+  {t:"﴿ وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَٰكِن شُبِّهَ لَهُمْ ﴾", r:"النساء: 157"}
+ ],
+ lessons:["الطهارة والعفة ترفع صاحبها للاصطفاء.","الله على كل شيء قدير: خلق عيسى بلا أب.","عيسى عبد الله ورسوله لا إله ولا ابن إله.","الثبات على الطاعة في الفتن كمريم."],
+ sources:["القرآن: آل عمران 33-59، مريم، النساء 157-158","صحيح البخاري (3430): «كل بني آدم يطعن الشيطان إلا مريم وابنها»","صحيح مسلم (2365) في نزول عيسى","تفسير ابن كثير، البداية والنهاية (1/ 310-340)"]
+},
+{
+ id:10, title:"محمد ﷺ — سيد المرسلين", cat:"seerah", catLabel:"السيرة النبوية",
+ icon:"🕌", grad:"linear-gradient(135deg,#0d3b2e,#c9a45c)",
+ refs:"الضحى • الشرح • الإسراء 1 • الفتح 29",
+ desc:"مختصر السيرة العطرة: المولد والوحي والهجرة والفتح — بالمصادر الصحيحة.",
+ story:[
+ "وُلد ﷺ في مكة عام الفيل (571م) يتيم الأب، وأرضعته حليمة السعدية، وتوفيت أمه وهو ابن ست سنين فكفله جده ثم عمه أبو طالب، واشتغل بالرعي ثم بالتجارة ولُقب بالصادق الأمين.",
+ "نزل عليه الوحي في غار حراء وهو ابن أربعين: ﴿ اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ﴾، فدعا سراً ثلاث سنين ثم جهراً، فأوذي وأصحابه، وصبر، وهاجر إلى الطائف ثم إلى المدينة.",
+ "في المدينة بنى المسجد وآخى بين المهاجرين والأنصار ووضع وثيقة المدينة، وخاض بدراً وأحداً والخندق، ثم صالح قريشاً في الحديبية، وفتح مكة في السنة الثامنة وقال: «اذهبوا فأنتم الطلقاء».",
+ "حج حجة الوداع وخطب خطبته الجامعة، وتوفي ﷺ في المدينة يوم الاثنين 12 ربيع الأول سنة 11هـ بعد أن أكمل الله به الدين: ﴿ الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ ﴾."
+ ],
+ verses:[
+  {t:"﴿ اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ﴾", r:"العلق: 1"},
+  {t:"﴿ سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ ﴾", r:"الإسراء: 1"},
+  {t:"﴿ الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي ﴾", r:"المائدة: 3"},
+  {t:"﴿ وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ ﴾", r:"القلم: 4"}
+ ],
+ lessons:["الرحمة والعفو: اذهبوا فأنتم الطلقاء.","الصبر على الأذى في سبيل الدعوة.","الأمانة والصدق قبل النبوة وبعدها.","الاتباع لا الابتداع: أكمل الله الدين."],
+ sources:["القرآن: العلق 1-5، الإسراء 1، المائدة 3","صحيح البخاري (3): بدء الوحي، و(3905): الهجرة","صحيح مسلم (2276): فضائل النبي ﷺ","الرحيق المختوم للمباركفوري، وزاد المعاد لابن القيم، والبداية والنهاية"]
+},
+{
+ id:11, title:"أصحاب الكهف — فتية الإيمان", cat:"quranic", catLabel:"قصص قرآنية",
+ icon:"⛰️", grad:"linear-gradient(135deg,#3a3a3a,#8a7a4a)",
+ refs:"الكهف 9-26",
+ desc:"فتية آمنوا فزادهم الله هدى — ناموا 309 سنين ثم بعثهم آية للعالمين.",
+ story:[
+ "كانوا فتية في مدينة يحكمها ملك ظالم يدعو لعبادة الأصنام، فآمنوا بربهم وزادهم الله هدى، وأعلنوها: ﴿ رَبُّنَا رَبُّ السَّمَاوَاتِ وَالْأَرْضِ لَن نَّدْعُوَ مِن دُونِهِ إِلَٰهًا ﴾.",
+ "اعتزلوا قومهم وما يعبدون ولجؤوا إلى الكهف، ودعوا: ﴿ رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا ﴾، فضرب الله على آذانهم في الكهف سنين عدداً.",
+ "قلّبهم الله ذات اليمين وذات الشمال، وكلبهم باسط ذراعيه بالوصيد، لو اطلعت عليهم لوليت منهم فراراً.",
+ "بعثهم الله بعد 309 سنين ليعلم الناس أن وعد الله حق وأن الساعة لا ريب فيها، فاختلف الناس في عددهم، وردّ الله علمهم إليه: ﴿ قُل رَّبِّي أَعْلَمُ بِعِدَّتِهِم ﴾ — وهذا أدب قرآني: لا تتكلف ما لا علم لك به."
+ ],
+ verses:[
+  {t:"﴿ إِنَّهُمْ فِتْيَةٌ آمَنُوا بِرَبِّهِمْ وَزِدْنَاهُمْ هُدًى ﴾", r:"الكهف: 13"},
+  {t:"﴿ وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا ﴾", r:"الكهف: 25"}
+ ],
+ lessons:["صحبة الصالحين واعتزال الفتن.","الشباب عماد الدعوة.","القدرة على البعث: من أنامهم 309 سنوات قادر على إحيائنا.","عدم التكلف في الغيب."],
+ sources:["القرآن: الكهف 9-26","صحيح مسلم (809): فضل سورة الكهف","تفسير ابن كثير (5/ 126-145)، تفسير الطبري"]
+},
+{
+ id:12, title:"ذو القرنين — العدل والقوة", cat:"quranic", catLabel:"قصص قرآنية",
+ icon:"🧱", grad:"linear-gradient(135deg,#4a2d0d,#a06a1e)",
+ refs:"الكهف 83-98",
+ desc:"ملك صالح بلغ المشرق والمغرب وبنى سد يأجوج ومأجوج بالعدل والإتقان.",
+ story:[
+ "سأل اليهود النبي ﷺ عن ذي القرنين، فأنزل الله خبره: ملك صالح مكّن الله له في الأرض وآتاه من كل شيء سبباً فأتبع سبباً.",
+ "بلغ مغرب الشمس فوجدها تغرب في عين حمئة ووجد عندها قوماً، فحكم فيهم بالعدل: من ظلم عُذّب، ومن آمن وعمل صالحاً فله جزاء الحسنى.",
+ "ثم بلغ مطلع الشمس ثم بين السدين حيث قوم لا يكادون يفقهون قولاً، شكوا له فساد يأجوج ومأجوج، فبنى لهم سداً من زبر الحديد والقطر بإتقان، وقال: ﴿ هَٰذَا رَحْمَةٌ مِّن رَّبِّي ﴾ — لم ينسب الفضل لنفسه.",
+ "أخبر أن السد سيُدك إذا جاء وعد الله، ووعد الله حق، وختم: ﴿ وَكَانَ وَعْدُ رَبِّي حَقًّا ﴾."
+ ],
+ verses:[
+  {t:"﴿ إِنَّا مَكَّنَّا لَهُ فِي الْأَرْضِ وَآتَيْنَاهُ مِن كُلِّ شَيْءٍ سَبَبًا ﴾", r:"الكهف: 84"},
+  {t:"﴿ قَالَ هَٰذَا رَحْمَةٌ مِّن رَّبِّي ﴾", r:"الكهف: 98"}
+ ],
+ lessons:["القوة مع العدل والإيمان.","نسبة الفضل لله لا للنفس.","الإتقان في العمل.","الأخذ بالأسباب مع التوكل."],
+ sources:["القرآن: الكهف 83-98","صحيح البخاري (3347): في يأجوج ومأجوج","صحيح مسلم (2880): فتح السد","تفسير ابن كثير (5/ 180-195)"]
+},
+{
+ id:13, title:"قارون — طغيان المال", cat:"quranic", catLabel:"قصص قرآنية",
+ icon:"💰", grad:"linear-gradient(135deg,#5e1a1a,#c96a2a)",
+ refs:"القصص 76-83",
+ desc:"أغنى أغنياء بني إسرائيل خسف الله به وبداره الأرض — عبرة لكل مغتر بماله.",
+ story:[
+ "كان قارون من قوم موسى فبغى عليهم، وآتاه الله كنوزاً عظيمة: ﴿ مَا إِنَّ مَفَاتِحَهُ لَتَنُوءُ بِالْعُصْبَةِ أُولِي الْقُوَّةِ ﴾ — مفاتيح خزائنه فقط تثقل الجماعة من الرجال.",
+ "نصحه العقلاء: لا تفرح (فرح الكبر)، وأحسن كما أحسن الله إليك، ولا تبغ الفساد، فقال كلمته الطاغية: ﴿ إِنَّمَا أُوتِيتُهُ عَلَىٰ عِلْمٍ عِندِي ﴾ — نسي فضل الله.",
+ "خرج في زينته فانقسم الناس: أهل الدنيا تمنوا مكانه، وأهل العلم قالوا: ﴿ وَيْلَكُمْ ثَوَابُ اللَّهِ خَيْرٌ ﴾.",
+ "خسف الله به وبداره الأرض، فما كان له من فئة ينصرونه، فأصبح النادمون يقولون: ﴿ لَوْلَا أَن مَّنَّ اللَّهُ عَلَيْنَا لَخَسَفَ بِنَا ﴾، وختم الله: ﴿ تِلْكَ الدَّارُ الْآخِرَةُ نَجْعَلُهَا لِلَّذِينَ لَا يُرِيدُونَ عُلُوًّا فِي الْأَرْضِ وَلَا فَسَادًا ﴾."
+ ],
+ verses:[
+  {t:"﴿ إِنَّمَا أُوتِيتُهُ عَلَىٰ عِلْمٍ عِندِي ﴾", r:"القصص: 78"},
+  {t:"﴿ فَخَسَفْنَا بِهِ وَبِدَارِهِ الْأَرْضَ ﴾", r:"القصص: 81"},
+  {t:"﴿ تِلْكَ الدَّارُ الْآخِرَةُ نَجْعَلُهَا لِلَّذِينَ لَا يُرِيدُونَ عُلُوًّا ﴾", r:"القصص: 83"}
+ ],
+ lessons:["المال فتنة ونعمة تزول بالكبر.","انسب الفضل لله لا لذكائك.","لا تحسد أهل الدنيا على دنياهم.","التواضع طريق الآخرة."],
+ sources:["القرآن: القصص 76-83","صحيح مسلم (91): «لا يدخل الجنة من كان في قلبه مثقال ذرة من كبر»","تفسير ابن كثير (6/ 252-260)"]
+},
+{
+ id:14, title:"أصحاب الفيل — حماية البيت", cat:"quranic", catLabel:"قصص قرآنية",
+ icon:"🐘", grad:"linear-gradient(135deg,#2e2e4d,#6a6ab0)",
+ refs:"الفيل 1-5 • (عام مولد النبي ﷺ)",
+ desc:"أبرهة وجيش الفيلة وطير أبابيل — العام الذي وُلد فيه النبي ﷺ.",
+ story:[
+ "بنى أبرهة الحبشي كنيسة في اليمن ليصرف الناس عن الكعبة، فأهانها رجل من العرب، فأقسم أبرهة ليهدمن الكعبة، وخرج بجيش عظيم تتقدمه الفيلة.",
+ "أخذ أموال قريش ومنها إبل عبد المطلب سيد مكة، فذهب إليه يطلب إبله، فقال أبرهة: ظننتك تدافع عن بيتك! فقال عبد المطلب كلمته الخالدة: «أنا رب الإبل، وللبيت رب سيمنعه».",
+ "وجّهوا الفيل نحو مكة فبرك ولم يتحرك، وصرفوه لليمن فهرول، ثم أرسل الله عليهم طيراً أبابيل ترميهم بحجارة من سجيل فجعلهم كعصف مأكول.",
+ "كانت هذه الآية توطئة لمولد النبي ﷺ في نفس العام (عام الفيل)، وتعظيماً للبيت الحرام وأمن مكة."
+ ],
+ verses:[
+  {t:"﴿ أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ ﴾", r:"الفيل: 1"},
+  {t:"﴿ وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ * تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ ﴾", r:"الفيل: 3-4"}
+ ],
+ lessons:["الله يحمي بيته ودينه.","الثقة بحفظ الله عند انعدام الأسباب.","التواضع مع العزة: كلمة عبد المطلب.","آيات الله توطئة للنعم الكبرى (مولد النبي)."],
+ sources:["القرآن: سورة الفيل","السيرة: ابن هشام (1/ 50-60)، البداية والنهاية (2/ 170)","صحيح البخاري (3571) في عام الفيل","تفسير ابن كثير (8/ 487-493)"]
+},
+{
+ id:15, title:"أبو بكر الصديق رضي الله عنه", cat:"sahaba", catLabel:"قصص الصحابة",
+ icon:"🌟", grad:"linear-gradient(135deg,#3d2b0d,#b8862f)",
+ refs:"التوبة 40 • البخاري 3653 • مسلم 2381",
+ desc:"أول من أسلم من الرجال، وصاحب الغار، وخليفة رسول الله ﷺ.",
+ story:[
+ "هو عبد الله بن أبي قحافة، أول من أسلم من الرجال الأحرار، أسلم على يد النبي ﷺ دون تردد، فكان صديقاً صادقاً، وسُمي الصديق لتصديقه خبر الإسراء والمعراج حين كذّب الناس.",
+ "صاحب النبي ﷺ في الغار أثناء الهجرة، قال له النبي ﷺ: ﴿ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا ﴾ [التوبة: 40]، وأنفق ماله كله في سبيل الله، وأعتق بلالاً وغيره من المستضعفين.",
+ "بعد وفاة النبي ﷺ ثبت الأمة بخطبته الخالدة: «من كان يعبد محمداً فإن محمداً قد مات، ومن كان يعبد الله فإن الله حي لا يموت»، وقاتل المرتدين ومانعي الزكاة، وجمع القرآن في مصحف واحد.",
+ "قال عنه ﷺ: «لو كنت متخذاً خليلاً لاتخذت أبا بكر خليلاً» (متفق عليه)، وتوفي سنة 13هـ ودفن بجوار النبي ﷺ."
+ ],
+ verses:[
+  {t:"﴿ إِذْ هُمَا فِي الْغَارِ إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا ﴾", r:"التوبة: 40"},
+  {t:"﴿ وَسَيُجَنَّبُهَا الْأَتْقَى * الَّذِي يُؤْتِي مَالَهُ يَتَزَكَّىٰ ﴾", r:"الليل: 17-18 — نزلت في أبي بكر"}
+ ],
+ lessons:["الصدق والتصديق الكامل للنبي ﷺ.","الإنفاق في سبيل الله بلا حد.","الثبات عند الفتن (وفاة النبي، الردة).","الصحبة الصالحة شرف عظيم."],
+ sources:["القرآن: التوبة 40، الليل 17-18","صحيح البخاري (3653، 3661): فضائل أبي بكر","صحيح مسلم (2381)","البداية والنهاية (6/ 301)، سير أعلام النبلاء (1/ 114)"]
+},
+{
+ id:16, title:"عمر بن الخطاب رضي الله عنه — الفاروق", cat:"sahaba", catLabel:"قصص الصحابة",
+ icon:"⚖️", grad:"linear-gradient(135deg,#4d150b,#c25a2a)",
+ refs:"البخاري 3683 • مسلم 2390 • الفتح المبين",
+ desc:"الذي فرّق الله به بين الحق والباطل، وفتحت في عهده القدس وفارس ومصر.",
+ story:[
+ "أسلم عمر بعد حمزة بثلاثة أيام، وكان إسلامه عزة للمسلمين، فصلوا عند الكعبة جهراً بعد أن كانوا مستخفين، ولُقب بالفاروق لأن الله فرّق به بين الحق والباطل.",
+ "هاجر جهراً متحدياً قريشاً، وشهد بدراً وأحداً والخندق وكل المشاهد، وكان وزير النبي ﷺ مع أبي بكر، وقال ﷺ: «إن الله جعل الحق على لسان عمر وقلبه» (الترمذي وصححه).",
+ "تولى الخلافة عشر سنين ونصف، ففتح القدس واستلم مفاتيحها بنفسه، وفتحت مصر وفارس والشام، وأسس الدواوين والتقويم الهجري، وكان يطوف بالليل يتفقد الرعية ويحمل الدقيق للمحتاجين.",
+ "استشهد وهو يصلي الفجر سنة 23هـ على يد أبي لؤلؤة المجوسي، ودفن بجوار النبي ﷺ وأبي بكر، وقال ﷺ: «والذي نفسي بيده ما لقيك الشيطان سالكاً فجاً إلا سلك فجاً غير فجك» (متفق عليه)."
+ ],
+ verses:[
+  {t:"حديث: «اللهم أعز الإسلام بأحد العمرين» فكان عمر — الترمذي", r:"استجاب الله دعاء نبيه بإسلام عمر"}
+ ],
+ lessons:["القوة في الحق لا في الباطل.","العدل أساس الملك: حكمت فعدلت.","تفقد الرعية مسؤولية الحاكم.","الشجاعة في إعلان الحق."],
+ sources:["صحيح البخاري (3683) ومسلم (2390): فضائل عمر","سنن الترمذي (3681): الحق على لسان عمر","البداية والنهاية (7/ 131)، سير أعلام النبلاء (2/ 26)"]
+},
+{
+ id:17, title:"عثمان بن عفان رضي الله عنه — ذو النورين", cat:"sahaba", catLabel:"قصص الصحابة",
+ icon:"📖", grad:"linear-gradient(135deg,#0d3b4d,#2a9eb8)",
+ refs:"البخاري 3695 • مسلم 2401 • جمع المصحف",
+ desc:"تزوّج ابنتي النبي ﷺ، وجهّز جيش العسرة، وجمع الأمة على مصحف واحد.",
+ story:[
+ "أسلم عثمان قديماً على يد أبي بكر، وتزوج رقية بنت النبي ﷺ ثم بعد وفاتها تزوج أم كلثوم، فلُقب بذي النورين، وكان حيياً كريماً تستحي منه الملائكة كما قال ﷺ (مسلم 2401).",
+ "جهّز جيش العسرة (تبوك) بماله كله: تسعمائة بعير ومائة فرس وعشرة آلاف دينار، فقال ﷺ: «ما ضر عثمان ما عمل بعد اليوم» (الترمذي)، واشترى بئر رومة ووسّع المسجد النبوي.",
+ "في خلافته جمع القرآن في مصحف واحد على حرف قريش وأرسل نسخه للأمصار (المصحف العثماني الذي بين أيدينا اليوم)، وفتحت في عهده أرمينية وأذربيجان وامتدت الدولة.",
+ "حاصره البغاة في داره وهو يقرأ القرآن، واستشهد وهو صائم يتلو: ﴿ فَسَيَكْفِيكَهُمُ اللَّهُ ﴾ سنة 35هـ، وكان دمه أول قطرة سالت في الفتنة الكبرى."
+ ],
+ verses:[
+  {t:"﴿ فَسَيَكْفِيكَهُمُ اللَّهُ ۚ وَهُوَ السَّمِيعُ الْعَلِيمُ ﴾", r:"البقرة: 137 — كان يقرؤها حين استشهد"}
+ ],
+ lessons:["الحياء خلق الإسلام.","الإنفاق بسخاء لنصرة الدين.","خدمة القرآن أعظم خدمة.","الصبر على الفتن وعدم سفك الدماء."],
+ sources:["صحيح البخاري (3695): فضل عثمان","صحيح مسلم (2401): تستحي منه الملائكة","سنن الترمذي (3701): جيش العسرة","البداية والنهاية (7/ 189)، سير أعلام النبلاء (2/ 235)"]
+},
+{
+ id:18, title:"علي بن أبي طالب رضي الله عنه — باب العلم", cat:"sahaba", catLabel:"قصص الصحابة",
+ icon:"🗡️", grad:"linear-gradient(135deg,#1d4d0d,#5aa32a)",
+ refs:"البخاري 3701 • مسلم 2406 • خيبر",
+ desc:"أول من أسلم من الصبيان، ونام في فراش النبي ليلة الهجرة، وفتح الله على يديه خيبر.",
+ story:[
+ "تربى علي في بيت النبي ﷺ، وأسلم وهو ابن عشر سنين فكان أول الصبيان إسلاماً، ونام في فراش النبي ﷺ ليلة الهجرة مخاطراً بنفسه ليعمي قريشاً.",
+ "زوّجه النبي ﷺ ابنته فاطمة سيدة نساء العالمين، وأنجبا الحسن والحسين سيدي شباب أهل الجنة، وشهد علي بدراً وأحداً والخندق وأبلى بلاءً حسناً.",
+ "يوم خيبر أعطاه النبي ﷺ الراية وقال: «لأعطين الراية غداً رجلاً يحب الله ورسوله ويحبه الله ورسوله، يفتح الله على يديه» (متفق عليه)، ففتح الله حصون خيبر على يديه واقتلع بابها.",
+ "تولى الخلافة بعد عثمان، وقال ﷺ: «أنت مني بمنزلة هارون من موسى» (متفق عليه)، واستشهد في رمضان سنة 40هـ وهو خارج لصلاة الفجر."
+ ],
+ verses:[
+  {t:"حديث الراية يوم خيبر: «يحب الله ورسوله ويحبه الله ورسوله»", r:"متفق عليه: البخاري 3701"}
+ ],
+ lessons:["الفداء والتضحية في سبيل الله.","العلم مع الشجاعة.","حب آل البيت باعتدال دون غلو.","الزهد في الدنيا."],
+ sources:["صحيح البخاري (3701) ومسلم (2406): فضائل علي","صحيح البخاري (4416): حديث المنزلة","البداية والنهاية (7/ 250)، سير أعلام النبلاء (1/ 261)"]
+},
+{
+ id:19, title:"بلال بن رباح رضي الله عنه — مؤذن الرسول", cat:"sahaba", catLabel:"قصص الصحابة",
+ icon:"🕌", grad:"linear-gradient(135deg,#2b1d4d,#7a5fc0)",
+ refs:"البخاري 3670 • مسلم 2030 • أحدٌ أحد",
+ desc:"من العبودية والتعذيب إلى أعلى المآذن — قصة الثبات بكلمة «أحدٌ أحد».",
+ story:[
+ "كان بلال عبداً حبشياً لأمية بن خلف، أسلم قديماً فعذبه سيده أشد العذاب: يُخرجه في حر مكة ويضع الصخرة على صدره ويقول اكفر، فيقول: «أحدٌ أحد».",
+ "اشتراه أبو بكر وأعتقه لله، فلازم النبي ﷺ وصار مؤذنه الأول، وكان ندي الصوت، وقال ﷺ: «يا بلال أرحنا بالصلاة».",
+ "بعد وفاة النبي ﷺ أذّن مرة واحدة فبكى الناس، وخرج مجاهداً إلى الشام، ولما دخل عمر القدس طلبوا منه أن يؤذن فأذن فبكى عمر والصحابة.",
+ "سمع النبي ﷺ خشخشة نعليه في الجنة (البخاري 3670)، وتوفي في دمشق سنة 20هـ وهو يقول: «غداً نلقى الأحبة، محمداً وحزبه»."
+ ],
+ verses:[
+  {t:"﴿ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا ۚ إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ ﴾", r:"الحجرات: 13 — لا فضل لعربي على عجمي إلا بالتقوى"}
+ ],
+ lessons:["الثبات على التوحيد مهما اشتد العذاب.","الإسلام يساوي بين البشر.","فضل الأذان والمؤذنين.","الحنين الصادق للنبي ﷺ."],
+ sources:["صحيح البخاري (3670): دف نعلي بلال في الجنة","سير أعلام النبلاء (1/ 347)، البداية والنهاية","صحيح مسلم في فضل المؤذنين (387)"]
+},
+{
+ id:20, title:"خالد بن الوليد رضي الله عنه — سيف الله المسلول", cat:"sahaba", catLabel:"قصص الصحابة",
+ icon:"⚔️", grad:"linear-gradient(135deg,#4d4d0d,#a3a32a)",
+ refs:"البخاري 3742 • مؤتة واليرموك",
+ desc:"لم يُهزم في مائة معركة — من قائد المشركين في أحد إلى سيف الإسلام.",
+ story:[
+ "كان خالد قائد فرسان قريش في أحد وسبب ثغرة الرماة، ثم أسلم قبل فتح مكة بثلاثة أشهر، فقال له ﷺ: «الحمد لله الذي هداك، ما كنت أرى عقلك إلا سيسلمك» ولقبه «سيف الله المسلول».",
+ "في مؤتة استشهد القادة الثلاثة (زيد وجعفر وابن رواحة) فأخذ الراية خالد وأنقذ الجيش بخطة انسحاب عبقرية، فقال ﷺ: «أخذ الراية عبد الله بن رواحة فأصيب، ثم أخذها خالد بن الوليد ولم يُسمَّ أميراً ففُتح له» (البخاري).",
+ "قاد اليرموك ضد الروم (240 ألفاً) بثلاثين ألفاً فانتصر، وفتح العراق والشام، ولم يُهزم في أكثر من مائة معركة.",
+ "عزله عمر عن القيادة خشية فتنة الناس به، فامتثل دون اعتراض وقال: «ما قاتلت للناس بل لله»، ومات على فراشه سنة 21هـ وهو يقول: «لا نامت أعين الجبناء»."
+ ],
+ verses:[
+  {t:"﴿ مِّنَ الْمُؤْمِنِينَ رِجَالٌ صَدَقُوا مَا عَاهَدُوا اللَّهَ عَلَيْهِ ﴾", r:"الأحزاب: 23"}
+ ],
+ lessons:["حسن الخاتمة يمحو ما قبلها — من أحد ضد المسلمين إلى سيف الله.","العبقرية العسكرية في خدمة الإسلام.","الامتثال لأمر الخليفة ولو كان عزلاً.","الإخلاص: القتال لله لا للشهرة."],
+ sources:["صحيح البخاري (3742، 4262): مؤتة وسيف الله","البداية والنهاية (6/ 324، 7/ 113)","سير أعلام النبلاء (1/ 366)"]
+}
+];
+
+const QUIZZES = {
+1:[{q:"مِمَّ خُلق آدم عليه السلام؟",o:["من نور","من طين","من نار"],a:1},{q:"من الذي أبى السجود لآدم؟",o:["إبليس","هاروت","قارون"],a:0},{q:"أين سكن آدم وزوجه أولاً؟",o:["في مكة","في الجنة","في مصر"],a:1}],
+2:[{q:"كم لبث نوح في قومه؟",o:["100 سنة","950 سنة","40 سنة"],a:1},{q:"ماذا صنع نوح بوحي الله؟",o:["قصرا","السفينة","السد"],a:1},{q:"من نجا مع نوح؟",o:["من آمن فقط","كل قومه","ابنه الكافر"],a:0}],
+3:[{q:"ماذا فعل إبراهيم بالأصنام؟",o:["عبدها","حطمها","باعها"],a:1},{q:"ماذا صارت النار على إبراهيم؟",o:["بردا وسلاما","أشد حرا","رمادا"],a:0},{q:"من بنى الكعبة مع إبراهيم؟",o:["إسحاق","إسماعيل","يعقوب"],a:1}],
+4:[{q:"ماذا رأى يوسف في الرؤيا؟",o:["11 كوكبا والشمس والقمر","جبلا ونهرا","سفينة وبحرا"],a:0},{q:"أين ألقاه إخوته؟",o:["في النار","في غيابة الجب","في البحر"],a:1},{q:"ماذا قال يوسف لإخوته عندما قدر عليهم؟",o:["سأنتقم منكم","لا تثريب عليكم اليوم","ارجعوا لكهفكم"],a:1}],
+5:[{q:"من هو كليم الله؟",o:["عيسى","موسى","هارون"],a:1},{q:"ماذا شق الله لموسى؟",o:["الجبل","البحر","القمر"],a:1},{q:"من غرق في البحر؟",o:["موسى وقومه","فرعون وجيشه","أصحاب الكهف"],a:1}],
+6:[{q:"ما الكتاب الذي أُنزل على داود؟",o:["التوراة","الزبور","الإنجيل"],a:1},{q:"ماذا فهم سليمان؟",o:["لغة النملة ومنطق الطير","لغة الحوت","كلام الجبال فقط"],a:0},{q:"ماذا سُخّر لسليمان؟",o:["الريح والجن","الذهب فقط","الفيلة"],a:0}],
+7:[{q:"بماذا اشتهر أيوب عليه السلام؟",o:["بالصبر الجميل","بالمال الكثير","بالملك"],a:0},{q:"بماذا دعا أيوب ربه؟",o:["رب هب لي ملكا","أني مسني الضر وأنت أرحم الراحمين","رب أرني كيف تحيي الموتى"],a:1},{q:"كيف شُفي أيوب؟",o:["بدواء الأطباء","بأمر الله: اركض برجلك","بالسفر"],a:1}],
+8:[{q:"من التقم يونس عليه السلام؟",o:["الحوت","الأسد","النسر"],a:0},{q:"ما دعوة ذي النون؟",o:["رب أرني ملكوت السماوات","لا إله إلا أنت سبحانك إني كنت من الظالمين","حسبنا الله ونعم الوكيل"],a:1},{q:"إلى من أُرسل يونس؟",o:["إلى فرعون","إلى قومه في نينوى فآمنوا","إلى الروم"],a:1}],
+9:[{q:"من اصطفاها الله على نساء العالمين؟",o:["آسية","مريم","خديجة"],a:1},{q:"كيف برّأ عيسى أمه؟",o:["تكلم في المهد","كتب رسالة","سكت"],a:0},{q:"ماذا حدث لعيسى عندما أرادوا قتله؟",o:["قتلوه","رفعه الله إليه","هرب للكهف"],a:1}],
+10:[{q:"في أي عام وُلد النبي ﷺ؟",o:["عام الفيل","عام الحزن","عام الوفود"],a:0},{q:"أين نزل الوحي أول مرة؟",o:["في المسجد الحرام","في غار حراء","في المدينة"],a:1},{q:"إلى أين هاجر النبي ﷺ؟",o:["إلى الطائف واستقر بها","إلى المدينة","إلى اليمن"],a:1}],
+11:[{q:"كم لبث أصحاب الكهف نائمين؟",o:["100 سنة","309 سنين","40 يوما"],a:1},{q:"ماذا دعوا قبل دخول الكهف؟",o:["ربنا آتنا من لدنك رحمة","ربنا أرنا آية","ربنا وسع أرزاقنا"],a:0},{q:"ما العبرة من قصتهم؟",o:["قوة الشباب","الإيمان والقدرة على البعث","حب المال"],a:1}],
+12:[{q:"ماذا بنى ذو القرنين؟",o:["السفينة","السد","الهرم"],a:1},{q:"ضد من بنى السد؟",o:["يأجوج ومأجوج","الفرس والروم","قوم عاد"],a:0},{q:"ماذا قال بعد بناء السد؟",o:["هذا بقوتي","هذا رحمة من ربي","هذا سحر"],a:1}],
+13:[{q:"قارون كان من قوم من؟",o:["فرعون","موسى","عاد"],a:1},{q:"ماذا قال قارون عن ماله؟",o:["هذا من فضل الله","إنما أوتيته على علم عندي","سأتصدق به"],a:1},{q:"ماذا فعل الله بقارون؟",o:["زاده مالا","خسف به وبداره الأرض","جعله ملكا"],a:1}],
+14:[{q:"من قاد جيش الفيل؟",o:["أبرهة","فرعون","النمرود"],a:0},{q:"بماذا أهلك الله أصحاب الفيل؟",o:["بالطوفان","بطير أبابيل ترميهم بحجارة","بالزلزال فقط"],a:1},{q:"في أي عام كانت القصة؟",o:["عام مولد النبي ﷺ","عام الهجرة","عام الفتح"],a:0}],
+15:[{q:"من أول من أسلم من الرجال؟",o:["عمر","أبو بكر الصديق","علي"],a:1},{q:"من كان مع النبي في الغار؟",o:["عمر","حمزة","أبو بكر"],a:2},{q:"ماذا جمع أبو بكر للأمة؟",o:["القرآن في مصحف","الذهب","الجيوش فقط"],a:0}],
+16:[{q:"ما لقب عمر بن الخطاب؟",o:["الصديق","الفاروق","ذو النورين"],a:1},{q:"أي مدينة استلم عمر مفاتيحها؟",o:["مكة","القدس","دمشق فقط"],a:1},{q:"كيف استشهد عمر؟",o:["في معركة","وهو يصلي الفجر","على فراشه"],a:1}],
+17:[{q:"لماذا لُقب عثمان بذي النورين؟",o:["لأنه تزوج ابنتي النبي ﷺ","لأنه بنى مسجدين","لأنه هاجر مرتين فقط"],a:0},{q:"ماذا جهّز عثمان؟",o:["جيش العسرة","سفينة نوح","سد مأرب"],a:0},{q:"ما أعظم خدمة قدمها عثمان للقرآن؟",o:["جمع الأمة على مصحف واحد","منع قراءته","أخفاه"],a:0}],
+18:[{q:"من نام في فراش النبي ليلة الهجرة؟",o:["علي بن أبي طالب","العباس","زيد"],a:0},{q:"على يد من فُتحت خيبر؟",o:["علي","خالد","سعد"],a:0},{q:"من زوجة علي رضي الله عنه؟",o:["عائشة","فاطمة بنت النبي ﷺ","أسماء"],a:1}],
+19:[{q:"ماذا كان يردد بلال تحت العذاب؟",o:["أحدٌ أحد","سأكفر","النجدة"],a:0},{q:"ماذا صار بلال؟",o:["وزيرا","مؤذن الرسول ﷺ","قاضيا"],a:1},{q:"من أعتق بلالا؟",o:["أبو بكر الصديق","أمية بن خلف","عمر"],a:0}],
+20:[{q:"ما لقب خالد بن الوليد؟",o:["سيف الله المسلول","أسد الله","الفاروق"],a:0},{q:"في أي معركة أنقذ خالد جيش المسلمين؟",o:["بدر","مؤتة","أحد"],a:1},{q:"كم معركة خاضها خالد دون هزيمة؟",o:["عشر","أكثر من مائة","واحدة"],a:1}]
+};
+
+const grid = document.getElementById('storiesGrid');
+const searchInput = document.getElementById('searchInput');
+const noResults = document.getElementById('noResults');
+let activeFilter = 'all';
+
+function catName(c){
+  if(c==='prophets') return 'قصص الأنبياء';
+  if(c==='quranic') return 'قصص قرآنية';
+  if(c==='sahaba') return 'قصص الصحابة';
+  return 'السيرة النبوية';
+}
+// هروب آمن للنصوص قبل إدراجها في HTML (أسماء الأطفال)
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// المفضلة — حفظ محلي
+const FAV_KEY='nour_favs';
+const BEST_KEY='nour_quiz_best';
+const KIDS_KEY='nour_kids';
+const ACTIVE_KEY='nour_active_kid';
+const KID_KEY='nour_kid_name';
+const SOUND_KEY='nour_sound';
+
+// ===== محرك الأصوات التشجيعية 🔊 (بدون ملفات خارجية) =====
+const Sound = {
+  get enabled(){ try{ return localStorage.getItem(SOUND_KEY)!=='off'; }catch(e){ return true; } },
+  set enabled(v){ try{ localStorage.setItem(SOUND_KEY, v?'on':'off'); }catch(e){} },
+  _ctx:null,
+  ac(){ try{
+    if(!this._ctx) this._ctx = new (window.AudioContext||window.webkitAudioContext)();
+    if(this._ctx.state==='suspended') this._ctx.resume();
+    return this._ctx;
+  }catch(e){ return null; } },
+  play(notes){ // notes: [freq, delay, dur, type, vol]
+    if(!this.enabled) return;
+    const ctx=this.ac(); if(!ctx) return;
+    try{
+      notes.forEach(n=>{
+        const [f,d,du,type,vol]=[n[0],n[1]||0,n[2]||0.15,n[3]||'sine',n[4]||0.15];
+        const o=ctx.createOscillator(), g=ctx.createGain();
+        o.type=type; o.frequency.value=f;
+        const t=ctx.currentTime+d;
+        g.gain.setValueAtTime(0.0001,t);
+        g.gain.exponentialRampToValueAtTime(vol,t+0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001,t+du);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(t); o.stop(t+du+0.05);
+      });
+    }catch(e){}
+  },
+  click(){ this.play([[700,0,0.07,'sine',0.10]]); },
+  correct(){ this.play([[880,0,0.12,'sine',0.16],[1318,0.10,0.20,'sine',0.16]]); },
+  wrong(){ this.play([[233,0,0.22,'triangle',0.10]]); },
+  good(){ this.play([[523,0,0.12],[659,0.12,0.12],[784,0.24,0.22]]); },
+  fanfare(){ this.play([[523,0,0.14],[523,0.14,0.14],[523,0.28,0.14],[659,0.42,0.28],[784,0.70,0.35],[1047,1.05,0.5]]); }
+};
+
+// ===== ملفات الأطفال (المسابقة العائلية) 👨‍👩‍👧‍👦 =====
+function uid(){ return 'k'+Date.now().toString(36)+Math.floor(Math.random()*999); }
+function getKids(){
+  try{
+    let kids=JSON.parse(localStorage.getItem(KIDS_KEY))||[];
+    if(!kids.length){
+      // ترحيل البيانات القديمة: أفضل نتيجة + الاسم المحفوظ
+      let oldBest={}; try{ oldBest=JSON.parse(localStorage.getItem(BEST_KEY))||{}; }catch(e){}
+      let oldName=''; try{ oldName=localStorage.getItem(KID_KEY)||''; }catch(e){}
+      kids=[{id:uid(), name:oldName||'بطلنا الصغير', best:oldBest}];
+      localStorage.setItem(KIDS_KEY, JSON.stringify(kids));
+      localStorage.setItem(ACTIVE_KEY, kids[0].id);
+    }
+    return kids;
+  }catch(e){ return [{id:'k0', name:'بطلنا الصغير', best:{}}]; }
+}
+function saveKids(k){ try{ localStorage.setItem(KIDS_KEY, JSON.stringify(k)); }catch(e){} }
+function getActiveId(){ try{ return localStorage.getItem(ACTIVE_KEY)||getKids()[0].id; }catch(e){ return null; } }
+function getActiveKid(){ const kids=getKids(); return kids.find(k=>k.id===getActiveId())||kids[0]; }
+function setActiveKid(id){ try{ localStorage.setItem(ACTIVE_KEY,id); }catch(e){} }
+function getBest(){ try{ return getActiveKid().best||{}; }catch(e){ return {}; } }
+function saveBestMap(m){ const kids=getKids(); const k=kids.find(x=>x.id===getActiveId()); if(k){ k.best=m; saveKids(kids); } }
+function kidStats(k){ let done=0,score=0; STORIES.forEach(s=>{ if(k.best&&k.best[s.id]!=null){done++; score+=k.best[s.id];} }); return {done,score,max:STORIES.length*3,total:STORIES.length}; }
+function addKid(name){
+  name=(name||'').trim().slice(0,30);
+  if(!name) return null;
+  const kids=getKids();
+  if(kids.length>=6){ alert('يمكن إضافة 6 أبطال كحد أقصى 👨‍👩‍👧‍👦'); return null; }
+  const k={id:uid(), name, best:{}};
+  kids.push(k); saveKids(kids); setActiveKid(k.id);
+  Sound.good();
+  return k;
+}
+function removeKid(id){
+  let kids=getKids();
+  if(kids.length<=1){ alert('يجب أن يبقى بطل واحد على الأقل 🌟'); return; }
+  kids=kids.filter(k=>k.id!==id); saveKids(kids);
+  if(getActiveId()===id) setActiveKid(kids[0].id);
+  Sound.click();
+}
+function getFavs(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY))||[]; }catch(e){ return []; } }
+function saveFavs(f){ localStorage.setItem(FAV_KEY, JSON.stringify(f)); updateFavCount(); }
+function isFav(id){ return getFavs().includes(id); }
+function updateFavCount(){ const el=document.getElementById('favCount'); if(el) el.textContent=getFavs().length; }
+function toggleFav(id){
+  let f=getFavs();
+  const adding=!f.includes(id);
+  if(!adding) f=f.filter(x=>x!==id); else f.push(id);
+  saveFavs(f); renderCards(); updateFavBtn();
+  if(adding) Sound.correct(); else Sound.click();
+}
+function updateFavBtn(){
+  const b=document.getElementById('favBtn'); if(!b||!currentStory) return;
+  if(isFav(currentStory.id)){ b.classList.add('active'); b.innerHTML='<i class="fa-solid fa-heart"></i> في مفضلتي ✓'; }
+  else{ b.classList.remove('active'); b.innerHTML='<i class="fa-regular fa-heart"></i> مفضلتي'; }
+}
+
+// بطاقات
+function renderCards(){
+  const q = (searchInput.value||'').trim();
+  grid.innerHTML = '';
+  let count = 0;
+  STORIES.filter(s=>{
+    let okF = true;
+    if(activeFilter==='fav') okF = isFav(s.id);
+    else if(activeFilter!=='all') okF = (s.cat===activeFilter);
+    const okS = !q ? true : (s.title+s.desc+s.refs).includes(q);
+    return okF && okS;
+  }).forEach(s=>{
+    count++;
+    const fav = isFav(s.id);
+    const best = getBest()[s.id];
+    const starsBadge = (best!=null) ? `<span class="card-stars" title="نتيجتك في الاختبار: ${best}/3">${'⭐'.repeat(best)}${'☆'.repeat(3-best)}</span>` : '';
+    const card = document.createElement('article');
+    card.className = 'story-card';
+    card.innerHTML = `
+      <div class="card-top" style="background:${s.grad}">
+        <span class="card-cat">${s.catLabel}</span>
+        <button class="card-fav ${fav?'active':''}" data-fav="${s.id}" title="أضف للمفضلة">${fav?'❤️':'🤍'}</button>
+        ${starsBadge}
+        <span class="card-icon">${s.icon}</span>
+      </div>
+      <div class="card-body">
+        <h3>${s.title}</h3>
+        <div class="card-refs"><i class="fa-solid fa-book-quran"></i> ${s.refs}</div>
+        <p class="card-desc">${s.desc}</p>
+        <div class="card-foot"><span>${catName(s.cat)}</span><button class="read-btn">اقرأ القصة <i class="fa-solid fa-arrow-left"></i></button></div>
+      </div>`;
+    card.onclick = (e)=>{
+      if(e.target.closest('[data-fav]')){ e.stopPropagation(); toggleFav(s.id); return; }
+      openStory(s.id);
+    };
+    grid.appendChild(card);
+  });
+  noResults.style.display = count===0 ? 'block':'none';
+  if(count===0 && activeFilter==='fav'){
+    noResults.innerHTML = '<div style="font-size:50px">🤍</div><p>مفضلتك فارغة بعد! اضغط على قلب 🤍 في أي قصة لحفظها هنا.</p>';
+  } else {
+    noResults.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i><p>لا توجد نتائج مطابقة، جرّب كلمة أخرى.</p>';
+  }
+}
+
+// نافذة القصة
+const modal = document.getElementById('storyModal');
+let currentStory = null;
+function stopAudio(){ try{ speechSynthesis.cancel(); }catch(e){} const b=document.getElementById('audioBtn'); if(b){b.classList.remove('playing'); b.innerHTML='<i class="fa-solid fa-headphones"></i> استمع للقصة';} }
+function openStory(id){
+  const s = STORIES.find(x=>x.id===id);
+  if(!s) return;
+  currentStory = s;
+  stopAudio();
+  document.getElementById('modalCat').textContent = s.catLabel;
+  document.getElementById('modalTitle').textContent = s.title;
+  document.getElementById('modalRefs').textContent = s.refs;
+  document.getElementById('tab-story').innerHTML = s.story.map(p=>`<p>${p}</p>`).join('');
+  document.getElementById('tab-verses').innerHTML = s.verses.map(v=>`<div class="verse-box"><div class="ar">${v.t}</div><div class="ref">[${v.r}]</div></div>`).join('');
+  document.getElementById('tab-lessons').innerHTML = s.lessons.map(l=>`<div class="lesson-item"><i class="fa-solid fa-lightbulb"></i><span>${l}</span></div>`).join('');
+  document.getElementById('tab-sourcesTab').innerHTML = `<ul class="source-list">`+s.sources.map(src=>`<li><i class="fa-solid fa-circle-check"></i>${src}</li>`).join('')+`</ul>`;
+  renderQuiz(s.id);
+  updateFavBtn();
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab==='story'));
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.toggle('active', p.id==='tab-story'));
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  try{ history.replaceState(null,'','#story-'+s.id); }catch(e){}
+}
+function closeModal(){ stopAudio(); modal.classList.remove('open'); document.body.style.overflow=''; try{ history.replaceState(null,'',location.pathname); }catch(e){} }
+
+// اختبار الأطفال 🧒
+let quizAnswers = {};
+function renderQuiz(id){
+  quizAnswers = {};
+  const qs = QUIZZES[id]||[];
+  const best = getBest()[id];
+  const box = document.getElementById('tab-quiz');
+  let html = `<div class="quiz-head">🌟 اختبر نفسك يا بطل! <small>${qs.length} أسئلة ممتعة عن القصة</small>`;
+  if(best!=null) html += `<div class="quiz-best">🏆 أفضل نتيجة لك: ${best}/${qs.length}</div>`;
+  html += `</div>`;
+  html += qs.map((item,i)=>`
+    <div class="quiz-q" data-q="${i}">
+      <div class="quiz-qtitle">${i+1}. ${item.q}</div>
+      <div class="quiz-opts">${item.o.map((op,j)=>`<button class="quiz-opt" data-i="${i}" data-j="${j}">${op}</button>`).join('')}</div>
+      <div class="quiz-feedback" id="qf-${i}"></div>
+    </div>`).join('');
+  html += `<button class="quiz-submit" id="quizSubmit">🎉 احسب نتيجتي</button><div id="quizResult" class="quiz-result"></div>`;
+  box.innerHTML = html;
+  box.querySelectorAll('.quiz-opt').forEach(b=>{
+    b.onclick = ()=>{
+      Sound.click();
+      const i=+b.dataset.i, j=+b.dataset.j;
+      quizAnswers[i]=j;
+      box.querySelectorAll(`.quiz-opt[data-i="${i}"]`).forEach(x=>x.classList.remove('picked'));
+      b.classList.add('picked');
+      const fb = document.getElementById('qf-'+i);
+      if(fb){ fb.textContent='تم اختيار إجابتك، أكمل باقي الأسئلة ثم اضغط احسب نتيجتي ✔'; fb.className='quiz-feedback info'; }
+    };
+  });
+  const sub = document.getElementById('quizSubmit');
+  if(sub) sub.onclick = ()=> gradeQuiz(id);
+}
+function gradeQuiz(id){
+  const qs = QUIZZES[id]||[];
+  if(Object.keys(quizAnswers).length < qs.length){ alert('أجب عن كل الأسئلة أولاً يا بطل 🌟'); return; }
+  let score=0;
+  qs.forEach((item,i)=>{
+    const btns = document.querySelectorAll(`.quiz-opt[data-i="${i}"]`);
+    btns.forEach(x=>{ x.disabled=true; const j=+x.dataset.j; x.classList.remove('picked');
+      if(j===item.a) x.classList.add('correct'); else if(quizAnswers[i]===j) x.classList.add('wrong'); });
+    const fb=document.getElementById('qf-'+i);
+    if(quizAnswers[i]===item.a){ score++; if(fb){fb.textContent='✅ أحسنت! إجابة صحيحة'; fb.className='quiz-feedback good';} }
+    else{ if(fb){fb.textContent='❌ الإجابة الصحيحة: '+item.o[item.a]; fb.className='quiz-feedback bad';} }
+  });
+  // حفظ الأفضل للبطل الحالي
+  try{ const b=getBest(); if((b[id]||0)<score){ b[id]=score; saveBestMap(b); } }catch(e){}
+  renderCards(); updateCertBanner();
+  const prevW=weeklyScore(getActiveId());
+  updateWeekly(id, score);
+  const wScore=weeklyScore(getActiveId());
+  const justWon = prevW<WEEK_GOAL && wScore>=WEEK_GOAL;
+  const r=document.getElementById('quizResult');
+  const kidName = esc((getActiveKid()?.name)||'بطلنا');
+  let msg, emoji;
+  if(score===qs.length){ emoji='🏆🎉'; msg=`ممتاز يا ${kidName}! علامة كاملة! أنت نجم القصص!`; Sound.fanfare(); }
+  else if(score>=Math.ceil(qs.length*2/3)){ emoji='🌟👏'; msg=`رائع يا ${kidName}! فهمت القصة جيداً، حاول مرة أخرى للعلامة الكاملة!`; Sound.good(); }
+  else if(score>=1){ emoji='💪📖'; msg=`جيد يا ${kidName}! اقرأ القصة مرة أخرى وحاول مجدداً، أنت تقدر!`; Sound.correct(); }
+  else{ emoji='💪📖'; msg=`لا بأس يا ${kidName}! كل الأبطال يتعلمون بالمحاولة — اقرأ القصة وحاول ثانية!`; Sound.wrong(); }
+  if(justWon){ msg+=`<br>🏆⏳ <strong>وحقق ${kidName} هدف تحدي الأسبوع (${WEEK_GOAL} نجمة)!</strong>`; Sound.fanfare(); }
+  r.innerHTML=`<div class="score-circle">${score}/${qs.length}</div><div class="score-msg">${emoji}<br>${msg}</div><button class="quiz-retry" onclick="renderQuiz(${id})">🔄 حاول مرة أخرى</button>`;
+  r.scrollIntoView({behavior:'smooth', block:'nearest'});
+  try{ if(navigator.vibrate) navigator.vibrate(score===qs.length?[100,50,100]:50); }catch(e){}
+}
+
+// زر المفضلة داخل النافذة
+document.addEventListener('click', e=>{
+  if(e.target.closest('#favBtn') && currentStory){ toggleFav(currentStory.id); }
+});
+
+// استماع صوتي بالعربية
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('#audioBtn');
+  if(!btn || !currentStory) return;
+  if(btn.classList.contains('playing')){ stopAudio(); return; }
+  try{
+    speechSynthesis.cancel();
+    const text = currentStory.title + '. ' + currentStory.story.join(' ') + ' الدروس المستفادة: ' + currentStory.lessons.join(' ');
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ar-SA'; u.rate = 0.95; u.pitch = 1;
+    const voices = speechSynthesis.getVoices();
+    const ar = voices.find(v=>v.lang && v.lang.startsWith('ar'));
+    if(ar) u.voice = ar;
+    u.onend = ()=> stopAudio();
+    u.onerror = ()=> stopAudio();
+    speechSynthesis.speak(u);
+    btn.classList.add('playing');
+    btn.innerHTML = '<i class="fa-solid fa-stop"></i> إيقاف الاستماع';
+    if(speechSynthesis.getVoices().length===0){ speechSynthesis.onvoiceschanged = ()=>{}; }
+  }catch(err){ alert('المتصفح لا يدعم القراءة الصوتية'); }
+});
+
+// مشاركة
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('#shareBtn');
+  if(!btn || !currentStory) return;
+  const box = document.getElementById('shareBox');
+  box.classList.toggle('show');
+});
+function hideShareBox(){ const b=document.getElementById('shareBox'); if(b) b.classList.remove('show'); }
+function fallbackCopy(t, done){
+  try{
+    const ta=document.createElement('textarea');
+    ta.value=t; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    const ok=document.execCommand('copy'); ta.remove();
+    if(ok){ done(); } else { alert('تعذر النسخ التلقائي — انسخ النص يدوياً:\n'+t); }
+  }catch(e){ alert('تعذر النسخ التلقائي — انسخ النص يدوياً:\n'+t); }
+}
+function copyText(t){
+  const done=()=>{ alert('تم نسخ القصة للمشاركة ✅'); hideShareBox(); };
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(done).catch(()=>fallbackCopy(t, done));
+    } else fallbackCopy(t, done);
+  }catch(e){ fallbackCopy(t, done); }
+}
+function shareTo(net){
+  if(!currentStory) return;
+  const text = '📖 ' + currentStory.title + ' — من موقع نور الهدى | ' + currentStory.refs;
+  const url = location.href.split('#')[0] + '#story-' + currentStory.id;
+  if(net==='native'){
+    if(navigator.share){ navigator.share({title:currentStory.title, text:text, url:url}).catch(()=>{}); hideShareBox(); }
+    else copyText(text+' '+url);
+    return;
+  }
+  if(net==='copy'){ copyText(text+' '+url); return; }
+  let link='';
+  if(net==='whatsapp') link='https://wa.me/?text='+encodeURIComponent(text+' '+url);
+  if(net==='telegram') link='https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
+  if(net==='x') link='https://twitter.com/intent/tweet?text='+encodeURIComponent(text+' '+url);
+  if(link) window.open(link,'_blank','width=600,height=500');
+  document.getElementById('shareBox').classList.remove('show');
+}
+
+// طباعة
+document.addEventListener('click', e=>{
+  if(e.target.closest('#printBtn')){
+    document.body.classList.add('printing-story');
+    setTimeout(()=>{ window.print(); setTimeout(()=>document.body.classList.remove('printing-story'), 500); }, 100);
+  }
+});
+document.getElementById('printPlanBtn')?.addEventListener('click', ()=>{
+  Sound.click();
+  document.body.classList.add('printing-guide');
+  setTimeout(()=>{ window.print(); setTimeout(()=>document.body.classList.remove('printing-guide'), 500); }, 100);
+});
+document.getElementById('modalClose').onclick = closeModal;
+modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeModal(); closeCert(); } });
+document.querySelectorAll('.tab-btn').forEach(b=>{
+  b.onclick = ()=>{
+    Sound.click();
+    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('tab-'+b.dataset.tab).classList.add('active');
+  };
+});
+
+// بحث وفلاتر
+searchInput.addEventListener('input', renderCards);
+document.querySelectorAll('.filter-btn').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    activeFilter = b.dataset.filter;
+    if(b.dataset.filter==='quranic'){ document.getElementById('quranic')?.scrollIntoView?.(); }
+    renderCards();
+  };
+});
+
+// الثيم والقائمة
+document.getElementById('themeToggle').onclick = function(){
+  document.body.classList.toggle('dark');
+  this.innerHTML = document.body.classList.contains('dark') ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+};
+document.getElementById('menuBtn').onclick = ()=> document.getElementById('navLinks').classList.toggle('open');
+document.querySelectorAll('#navLinks a').forEach(a=> a.onclick = ()=> document.getElementById('navLinks').classList.remove('open'));
+
+// زر الصعود + اللودر
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', ()=> backTop.classList.toggle('show', window.scrollY>500));
+backTop.onclick = ()=> window.scrollTo({top:0, behavior:'smooth'});
+
+window.addEventListener('load', ()=>{
+  setTimeout(()=> document.getElementById('loader').classList.add('hide'), 900);
+  updateFavCount();
+  renderCards();
+  updateCertBanner();
+  renderWeekly();
+  tickWeeklyTimer();
+  setInterval(tickWeeklyTimer, 1000);
+  // رسالة لطيفة عند عدم وجود مفضلة
+  // رابط مباشر لقصة: #story-15
+  if(location.hash.startsWith('#story-')){
+    const id = parseInt(location.hash.replace('#story-',''));
+    if(id) setTimeout(()=> openStory(id), 1200);
+  }
+  // تجهيز الأصوات العربية
+  try{ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = ()=> speechSynthesis.getVoices(); }catch(e){}
+  // زر الصحابة في القائمة
+  document.querySelectorAll('[data-goto-sahaba]').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      activeFilter='sahaba';
+      document.querySelectorAll('.filter-btn').forEach(x=>x.classList.toggle('active', x.dataset.filter==='sahaba'));
+      renderCards();
+    });
+  });
+});
+// احتياط لو تأخر التحميل
+setTimeout(()=>{ document.getElementById('loader').classList.add('hide'); if(!grid.children.length) renderCards(); }, 2500);
+
+// ===== شهادة التفوق 🏆 =====
+function getKidName(){ try{ return getActiveKid().name||''; }catch(e){ return ''; } }
+function certStats(){
+  const best=getBest();
+  let done=0, score=0;
+  STORIES.forEach(s=>{ if(best[s.id]!=null){ done++; score+=best[s.id]; } });
+  return {done, score, max:STORIES.length*3, total:STORIES.length};
+}
+function certLevel(score,max){
+  const p = max? score/max : 0;
+  if(p>=0.9) return '🏆 بطل قصص الأنبياء بامتياز وشرف';
+  if(p>=0.7) return '🌟 بطل قصص الأنبياء';
+  if(p>=0.5) return '💪 بطل واعد — واصل التقدم';
+  return '📖 مثابر جميل — أكمل وتعلم أكثر';
+}
+function updateCertBanner(){
+  const t=document.getElementById('certProgressText'), f=document.getElementById('certBarFill');
+  if(!t||!f) return;
+  const st=certStats();
+  const kid=getActiveKid()?.name||'بطلنا';
+  const pct=Math.round(st.done/st.total*100);
+  f.style.width=pct+'%';
+  t.textContent = st.done===st.total
+    ? `مذهل يا ${kid}! أكملت ${st.done}/${st.total} — مجموعك ${st.score}/${st.max} — شهادتك جاهزة! 🎉`
+    : `${kid} أنجز ${st.done}/${st.total} قصص — اجمع ${st.max} نقطة واحصل على شهادتك!`;
+  updateSoundBtns();
+}
+function switchKid(id){
+  setActiveKid(id);
+  Sound.click();
+  const inp=document.getElementById('kidName');
+  if(inp) inp.value=getActiveKid()?.name||'';
+  renderCards(); updateCertBanner(); renderWeekly();
+  if(document.getElementById('certModal').classList.contains('open')) refreshCert();
+}
+function openCert(){
+  const modal=document.getElementById('certModal');
+  const input=document.getElementById('kidName');
+  input.value=getKidName();
+  refreshCert();
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  // احتفال مرة واحدة عند الفتح فقط (وليس مع كل تحديث)
+  const cst=certStats();
+  if(cst.done===cst.total && cst.score>=cst.max*0.9) celebrate();
+}
+function closeCert(){
+  document.getElementById('certModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function refreshCert(){
+  const st=certStats();
+  const input=document.getElementById('kidName');
+  const active=getActiveKid();
+  // إعادة تسمية البطل الحالي عند الكتابة (تُحفظ عند حدث input)
+  const name=(input.value||'').trim();
+  document.getElementById('certKidName').textContent = name || active.name || 'اسم البطل';
+  document.getElementById('certLevel').textContent = certLevel(st.score, st.max);
+  document.getElementById('certScore').textContent = st.score+'/'+st.max;
+  document.getElementById('certStars').textContent = st.score+'⭐';
+  document.getElementById('certDone').textContent = st.done+'/'+st.total;
+  try{ document.getElementById('certDate').textContent = new Date().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'}); }catch(e){ document.getElementById('certDate').textContent=''; }
+  // شبكة النجوم
+  const best=getBest();
+  document.getElementById('certStarsGrid').innerHTML = STORIES.map(s=>{
+    const b=best[s.id];
+    const star = b==null ? '⬜' : ('⭐'.repeat(b)+'☆'.repeat(3-b));
+    return `<button class="cert-star-item ${b==null?'missing':''}" data-go="${s.id}" title="${s.title}">${s.icon}<small>${star}</small></button>`;
+  }).join('');
+  document.querySelectorAll('.cert-star-item').forEach(btn=>{
+    btn.onclick=()=>{ closeCert(); openStory(+btn.dataset.go);
+      setTimeout(()=>{ document.querySelector('.tab-btn[data-tab="quiz"]')?.click(); },350); };
+  });
+  // رسالة التشجيع
+  const msg=document.getElementById('certMsg');
+  const safeName=esc(name||active.name||'بطلنا');
+  if(st.done<st.total){
+    const left=st.total-st.done;
+    msg.innerHTML=`📖 تبقى لـ <strong>${safeName}</strong> عدد <strong>${left}</strong> قصص لإتمام الشهادة — اضغط على أي مربع ⬜ للانتقال لاختباره مباشرة!`;
+  } else if(st.score>=st.max*0.9){
+    msg.innerHTML=`🎉🎉 مذهل يا <strong>${safeName}</strong>! علامة ممتازة — اطبع شهادتك وشارك فرحتك!`;
+  } else {
+    msg.innerHTML=`👏 أحسنت يا <strong>${safeName}</strong>! أتممت كل القصص — يمكنك تحسين نتيجتك بإعادة أي اختبار، أو طباعة شهادتك الآن!`;
+  }
+  renderFamily();
+}
+// ===== المسابقة العائلية: الرقائق + الصدارة =====
+function renderFamily(){
+  const wrap=document.getElementById('familyBoard');
+  if(!wrap) return;
+  const kids=getKids();
+  const activeId=getActiveId();
+  const medals=['🥇','🥈','🥉','🏅','🏅','🏅'];
+  const ranked=[...kids].sort((a,b)=>kidStats(b).score-kidStats(a).score);
+  wrap.innerHTML = `
+    <div class="kid-chips">${kids.map(k=>{
+      const s=kidStats(k);
+      return `<button class="kid-chip ${k.id===activeId?'active':''}" data-kid="${k.id}" title="${s.score}/${s.max}">
+        ${k.id===ranked[0]?.id&&s.score>0?'👑 ':''}${esc(k.name)} <small>${s.score}⭐</small>
+        ${kids.length>1?`<span class="kid-x" data-del="${k.id}" title="حذف">×</span>`:''}
+      </button>`; }).join('')}
+    </div>
+    <div class="add-kid-row">
+      <input type="text" id="newKidName" class="kid-add-input" placeholder="اسم بطل جديد... (حتى 6 أبطال)" maxlength="30">
+      <button id="addKidBtn" class="kid-add-btn">➕ إضافة بطل</button>
+      <button id="soundToggle" class="sound-toggle ${Sound.enabled?'on':''}" title="الأصوات التشجيعية">${Sound.enabled?'🔊 الصوت: يعمل':'🔇 الصوت: متوقف'}</button>
+    </div>
+    <div class="leaderboard">
+      <div class="lb-title">🏆 لوحة الصدارة العائلية</div>
+      ${ranked.map((k,i)=>{ const s=kidStats(k);
+        return `<div class="lb-row ${k.id===activeId?'me':''}">
+          <span>${medals[i]||'🏅'} ${esc(k.name)}</span>
+          <span class="lb-score">${s.done}/${s.total} قصص • ${s.score}/${s.max} ⭐</span>
+        </div>`; }).join('')}
+    </div>`;
+  wrap.querySelectorAll('[data-kid]').forEach(ch=>{
+    ch.onclick=(e)=>{
+      if(e.target.closest('[data-del]')){ e.stopPropagation(); removeKid(ch.dataset.kid);
+        const inp2=document.getElementById('kidName'); if(inp2) inp2.value=getActiveKid()?.name||'';
+        renderCards(); updateCertBanner(); renderWeekly(); refreshCert(); return; }
+      switchKid(ch.dataset.kid);
+    };
+  });
+  const add=wrap.querySelector('#addKidBtn'), inp=wrap.querySelector('#newKidName');
+  const doAdd=()=>{ const k=addKid(inp.value); if(k){ renderCards(); updateCertBanner(); renderWeekly(); refreshCert(); } else if((inp.value||'').trim()){ /* حد أقصى */ } else { alert('اكتب اسم البطل أولاً 🌟'); } };
+  if(add) add.onclick=doAdd;
+  if(inp) inp.onkeydown=(e)=>{ if(e.key==='Enter') doAdd(); };
+  const st=wrap.querySelector('#soundToggle');
+  if(st) st.onclick=()=>{ Sound.enabled=!Sound.enabled; if(Sound.enabled) Sound.good(); updateSoundBtns(); renderFamily(); };
+}
+function updateSoundBtns(){
+  document.querySelectorAll('#soundToggle').forEach(b=>{
+    b.classList.toggle('on', Sound.enabled);
+    b.innerHTML = Sound.enabled?'🔊 الصوت: يعمل':'🔇 الصوت: متوقف';
+  });
+}
+
+// ===== تحدي الأسبوع ⏳ (السبت → الجمعة، الهدف 30 نجمة) =====
+const WEEK_KEY='nour_weekly';
+const WEEK_GOAL=30;
+function weekRange(now){
+  const d=new Date(now); d.setHours(0,0,0,0);
+  const sinceSat=(d.getDay()+1)%7; // السبت=0 ... الجمعة=6
+  const start=new Date(d); start.setDate(d.getDate()-sinceSat);
+  const end=new Date(start); end.setDate(start.getDate()+6); end.setHours(23,59,59,999);
+  return {start,end};
+}
+function weekId(date){ const s=weekRange(date).start; return s.getFullYear()+'-'+(s.getMonth()+1)+'-'+s.getDate(); }
+function getWeekly(){
+  const id=weekId(new Date());
+  try{
+    let w=JSON.parse(localStorage.getItem(WEEK_KEY));
+    if(!w || w.weekId!==id){ w={weekId:id, best:{}}; localStorage.setItem(WEEK_KEY, JSON.stringify(w)); }
+    return w;
+  }catch(e){ return {weekId:id, best:{}}; }
+}
+function saveWeekly(w){ try{ localStorage.setItem(WEEK_KEY, JSON.stringify(w)); }catch(e){} }
+function weeklyScore(kidId){ const w=getWeekly(); const m=w.best[kidId]||{}; return Object.values(m).reduce((a,b)=>a+b,0); }
+// تُستدعى عند تصحيح أي اختبار — تعيد true إذا تحسّن مجموع الأسبوع
+function updateWeekly(storyId, score){
+  const w=getWeekly();
+  const kidId=getActiveId();
+  if(!w.best[kidId]) w.best[kidId]={};
+  const prev=w.best[kidId][storyId]||0;
+  if(score>prev){ w.best[kidId][storyId]=score; saveWeekly(w); renderWeekly(); return true; }
+  renderWeekly();
+  return false;
+}
+function weeklyWinner(){
+  const kids=getKids().map(k=>({k, s:weeklyScore(k.id)}));
+  const champs=kids.filter(x=>x.s>=WEEK_GOAL).sort((a,b)=>b.s-a.s);
+  return champs.length? champs[0] : null;
+}
+function renderWeekly(){
+  const board=document.getElementById('weeklyBoard'), win=document.getElementById('weeklyWinner');
+  if(!board) return;
+  const kids=getKids();
+  const ranked=[...kids].sort((a,b)=>weeklyScore(b.id)-weeklyScore(a.id));
+  board.innerHTML=ranked.map(x=>{
+    const s=weeklyScore(x.id);
+    const p=Math.min(100, Math.round(s/WEEK_GOAL*100));
+    const done=s>=WEEK_GOAL;
+    return `<div class="weekly-row ${done?'done':''}">
+      <span class="weekly-name">${done?'🏆 ':''}${x.id===getActiveId()?'👈 ':''}${esc(x.name)}</span>
+      <div class="weekly-pbar"><span style="width:${p}%"></span></div>
+      <span class="weekly-num">${s}/${WEEK_GOAL} ⭐</span>
+    </div>`;
+  }).join('');
+  const w=weeklyWinner();
+  if(w && win){
+    win.style.display='block';
+    win.innerHTML=`🎉🏆 <strong>${esc(w.k.name)}</strong> هو بطل هذا الأسبوع بمجموع <strong>${w.s} نجمة</strong>! صفقوا له 👏👏`;
+  } else if(win){ win.style.display='none'; win.innerHTML=''; }
+  tickWeeklyTimer();
+}
+let _lastWeekId=null;
+function tickWeeklyTimer(){
+  const now=new Date();
+  const cur=weekId(now);
+  if(_lastWeekId===null){ _lastWeekId=cur; }
+  else if(cur!==_lastWeekId){ _lastWeekId=cur; renderWeekly(); return; }
+  const el=document.getElementById('weeklyTimer'); if(!el) return;
+  const end=weekRange(now).end;
+  let s=Math.max(0, Math.floor((end-Date.now())/1000));
+  const d=Math.floor(s/86400); s%=86400;
+  const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;
+  el.textContent = d>0
+    ? `⏳ ينتهي التحدي بعد: ${d} يوم و ${h} ساعة و ${m} دقيقة`
+    : `⏳ ينتهي التحدي بعد: ${h} ساعة و ${m} دقيقة و ${sec} ثانية`;
+}
+function celebrate(){
+  // احتفال بالنجوم + صوت الفوز
+  Sound.fanfare();
+  const m=document.querySelector('.cert-modal-content');
+  if(!m||m.querySelector('.confetti')) return;
+  const c=document.createElement('div');
+  c.className='confetti';
+  c.textContent='🎉 ⭐ 🎊 ⭐ 🎉 ⭐ 🎊';
+  m.prepend(c);
+  setTimeout(()=>c.remove(), 3500);
+}
+document.getElementById('certOpenBtn')?.addEventListener('click', openCert);
+document.getElementById('certNavBtn')?.addEventListener('click', e=>{ e.preventDefault(); document.getElementById('navLinks').classList.remove('open'); openCert(); });
+document.getElementById('certClose')?.addEventListener('click', closeCert);
+document.getElementById('certModal')?.addEventListener('click', e=>{ if(e.target.id==='certModal') closeCert(); });
+document.getElementById('kidName')?.addEventListener('input', ()=>{
+  // إعادة تسمية البطل الحالي
+  const v=document.getElementById('kidName').value.trim().slice(0,30);
+  const kids=getKids(); const k=kids.find(x=>x.id===getActiveId());
+  if(k && v){ k.name=v; saveKids(kids); }
+  refreshCert(); updateCertBanner();
+});
+document.getElementById('certPrintBtn')?.addEventListener('click', ()=>{
+  const name=(document.getElementById('kidName').value||'').trim();
+  if(!name){ alert('اكتب اسم البطل أولاً لطباعة الشهادة 🌟'); document.getElementById('kidName').focus(); return; }
+  refreshCert();
+  document.body.classList.add('printing-cert');
+  setTimeout(()=>{ window.print(); setTimeout(()=>document.body.classList.remove('printing-cert'), 500); }, 100);
+});
+document.getElementById('certShareBtn')?.addEventListener('click', ()=>{
+  const st=certStats();
+  const name=(document.getElementById('kidName').value||'').trim()||'بطلنا الصغير';
+  const text=`🏆 ${name} حصل على ${st.score}/${st.max} في اختبارات قصص الأنبياء والصحابة من موقع نور الهدى! ${certLevel(st.score,st.max)} — هل يقدر طفلك على التحدي؟`;
+  const url=location.href.split('#')[0];
+  if(navigator.share){ navigator.share({title:'شهادة بطل قصص الأنبياء', text:text, url:url}).catch(()=>{}); }
+  else{ window.open('https://wa.me/?text='+encodeURIComponent(text+' '+url),'_blank'); }
+});
+
+</script>
+</body>
+</html>
